@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Product Roadmapping</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0dcbf449-b696-4bc1-9660-6a83b5f09c7c" class="page sans"><header><h1 class="page-title">Product Roadmapping</h1><p class="page-description"></p></header><div class="page-body"><p id="e528ec8f-957e-4b39-8d1c-95c7aeadf929" class="">
+</p><h2 id="ba58ca5d-675a-463e-91cd-87dacd8dd461" class=""><strong>Overview</strong></h2><p id="d9f612a1-8278-4c2a-a2e7-19003e6ad4da" class="">It comprises of 4 main modules each designed to focus on a specific aspect of Product Roadmapping.</p><p id="15260006-fae5-40af-97fc-7240e3ac4202" class="">The first module,<strong> &#x27;Overview of Product Roadmaps,&#x27;</strong> lays the groundwork. You&#x27;ll learn about the importance of Roadmaps in aligning business and product strategy and how the company CMC Invest was able to shift their “feature factory” mentality into a customer-centric culture supported and enabled by real-time Product Roadmaps.</p><p id="e6ba6993-25d2-470a-8832-4e329644be5d" class="">Next, in the second module, <strong>&#x27;Creating Successful Roadmaps,&#x27;</strong> we delve into the practical side of constructing a Roadmap. We&#x27;ll talk about everything from gathering inputs to crafting your Roadmap story, tailoring the Roadmap to different audiences, and how to handle changes in plans and priorities. By the end of this module, you&#x27;ll have the tools you need to create an effective and communicative Product Roadmap.The third module,<strong> &#x27;Integrating into Process &amp; Culture,&#x27; </strong>shifts focus to the implementation of your Roadmap. Here, we&#x27;ll explore how to incorporate your Roadmap into your day-to-day product management process to keep it evergreen and relevant. We&#x27;ll also discuss how Roadmaps can drive better collaboration, alignment across the organization, and foster a culture centered around your product vision.</p><p id="37e8f3cf-25b9-435f-9342-15afedcc9569" class="">The fourth module provides you with practical tips and tricks related to Product Roadmapping as well as addresses common myths that you will come across in your journey. Finally, you will get tips on where do you go next after this certification to continue on your Roadmapping journey.</p><p id="56b6ff61-89b5-44bc-ae28-e9ce60def75c" class="">
+</p><div id="ae393255-8347-428d-aa3d-7f75ca26c6fa" class="column-list"><div id="87f05c53-7e4a-4a46-b514-e00b167a75e4" style="width:50%" class="column"><h2 id="f28c3782-6533-461b-8c1e-2491c705014f" class=""><strong>Introducing Zlack Case Study</strong></h2></div><div id="5be727c3-32c8-48f7-9ab9-ee2f6d226b33" style="width:50%" class="column"><figure id="505d3a4b-eb95-4988-8a7d-f69fa4b06ad0" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/npIC6gOgTrG64cmv1Mw0"><img style="width:48px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/npIC6gOgTrG64cmv1Mw0"/></a></figure></div></div><p id="2e5480a1-dea1-4725-b3e4-6255b504ea82" class="">Zlack is a rapidly growing technology company that provides a messaging platform for teams to communicate and collaborate. Since its launch a while back, its intuitive interface and extensive features have made it a popular choice amongst businesses of all sizes.</p><p id="470893cd-407e-4b40-a035-3fec45139741" class="">In the sample scenario in this certification, you’ve just been hired to the role of Product Manager (PM) at Zlack with the responsibility for setting up Roadmaps in Productboard for Zlack. As you progress through the certification, we will walk you through the different objectives, product features, and priorities so that you can use these to set up the first few Roadmaps for the company.</p><p id="563054e6-5ef7-4504-b8e1-ff97b574cb4e" class="">Make sure that you follow along with the case study and use the demonstrations and instructions to practice and create Roadmaps that can guide the future development of the Zlack product while keeping different stakeholders informed.</p><p id="bd7e7a4c-e3db-4262-8881-a5f25130e922" class="">
+</p><h2 id="fad23cbd-a57e-44c4-a665-6d4173436a3a" class=""><strong>Your Playground</strong></h2><figure id="0bf64622-dee8-4edd-a1f6-7b7bd445987c" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/P31rBqPvTpJjQ2iihMva"><img style="width:500px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/P31rBqPvTpJjQ2iihMva"/></a></figure><ul id="8d3d6548-0804-40a1-9df7-6d41e40f001e" class="bulleted-list"><li style="list-style-type:disc">We’ll be using Productboard, a customer-driven product management system, to view our fictional Zlack product data.</li></ul><ul id="92ccf8a5-e546-4773-951e-327c622ca16a" class="bulleted-list"><li style="list-style-type:disc">So to get started, let’s get you signed up for a free trial so you can follow along as we walk you through how to build successful Product Roadmaps throughout this certification.</li></ul><h3 id="cb420ea0-69bf-4070-841d-a1fb5cf17a54" class=""><strong>Let us take a look at the steps for you to create your Productboard account.</strong></h3><h3 id="99131a35-953a-494c-b73b-db99316596e3" class=""><strong>Instructions:</strong></h3><ul id="7faea720-f882-437d-8429-c08b533c1166" class="bulleted-list"><li style="list-style-type:disc">Go to the following<strong> </strong><a href="https://app.productboard.com/register/?utm_medium=referral&amp;utm_source=partner&amp;utm_campaign=pt_dg_all_trial_all_certification_fy24q3&amp;utm_content=product-school-certification"><span style="border-bottom:0.05em solid"><strong>link</strong></span></a><a href="https://app.productboard.com/register/?utm_medium=referral&amp;utm_source=partner&amp;utm_campaign=pt_dg_all_trial_all_certification_fy24q3&amp;utm_content=product-school-certification"><strong> </strong></a>to start your free trial of Productboard</li></ul><ul id="f19a7164-9619-4d8d-8408-237954dc0f8a" class="bulleted-list"><li style="list-style-type:disc">Register for a free 15-day trial that provides access to all features with no credit card required</li></ul><ul id="7fbe848a-7ef0-48a9-8ae3-c20dc4b25d0e" class="bulleted-list"><li style="list-style-type:disc">Be sure to verify your email and fill out the additional information when prompted</li></ul><ul id="07ce39d3-d074-4b02-86d6-68f16a072c9f" class="bulleted-list"><li style="list-style-type:disc">Next go to explore plans, click on the Explore Plans</li></ul><ul id="ec544e45-c16d-4e82-ab36-6b3c7195738f" class="bulleted-list"><li style="list-style-type:disc">Select the <strong>Enterprise plan option</strong> and click “Let’s Explore”</li></ul><ul id="01714e8f-5125-4046-9a97-8eb2c311d018" class="bulleted-list"><li style="list-style-type:disc">This will allow you to trial out all of the different functionality we will discuss during this certification</li></ul><ul id="fbb3182f-ffd8-48bb-b386-0468564d7047" class="bulleted-list"><li style="list-style-type:disc">If you have any issues, please reach out to<a href="mailto:jean.cameron@productboard.com"><span style="border-bottom:0.05em solid">jean.cameron@productboard.com</span></a> for assistance</li></ul><figure id="22b650da-f77b-43fc-bb86-bb2ffaebc325" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/nCLbFwzBQ3CQ4fc3KdIK"><img style="width:166px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/nCLbFwzBQ3CQ4fc3KdIK"/></a></figure><ul id="43c04e7f-e1a9-45b4-83e5-4f9eb5a8b32f" class="bulleted-list"><li style="list-style-type:disc">Zlack is a fictional messaging service product site for which the data such as product features, backlogs and customer insights can be found on your Product Board Trial.</li></ul><ul id="3b34e612-d1c7-44e9-b02f-0ac8af767680" class="bulleted-list"><li style="list-style-type:disc">Go through the different lessons on creating Roadmaps and follow the demo videos to build your first few Roadmaps.</li></ul><p id="bbb9a938-7e96-4c12-9e7f-ea18abfe00f3" class="">
+</p><h2 id="5750bf65-e8bc-45bf-b089-4bd1afbebbf5" class=""><strong>Introduction to Product Roadmapping</strong></h2><p id="c47f827f-c7f5-476a-bf14-982594e5666b" class="">A product manager has a multi-faceted role, one with strategic responsibilities in driving the success of a product. Product Roadmapping is an important tool in the toolkit of a product manager as it provides a strategic framework for aligning product initiatives with the business objectives and vision. The use of Product Roadmapping will allow you to drive the success of your products while staying focused on the overall product strategy.</p><p id="d272d4d0-973b-4164-94b2-24be358fa1b2" class="">Our aim in this first module is to give you a thorough understanding of the critical role Product Roadmaps play in aligning team goals, communicating strategy, making informed decisions, and fostering accountability.</p><h3 id="cfb7765a-fc31-4592-b5ef-1901f9800924" class=""><strong>Let us get started by first understanding what is a Product Roadmap.</strong></h3><p id="f367b5c6-f765-433f-ae9b-fc9094a036fc" class="">
+</p><p id="96418906-0c4b-4e48-80a0-f92b9b874b9b" class="">A Product Roadmap is a visualization of the life of your product. It lays out the product vision, and the stages between now and the realization of that vision.</p><h3 id="e7bae0bd-e43b-4211-873a-ed3c714035dd" class=""><strong>Some of the goals for a Product Roadmap include:</strong></h3><ul id="a3775c6e-5386-43fb-9c50-9cf95189ec98" class="bulleted-list"><li style="list-style-type:disc">Communicating product vision to internal and external stakeholders/customers</li></ul><ul id="b143dd4d-1006-4a20-88c0-28f5c013bbc6" class="bulleted-list"><li style="list-style-type:disc">Gaining alignment between the different stakeholders</li></ul><ul id="e315d0e8-2c7c-4fbf-a659-4d46e3f8b7fa" class="bulleted-list"><li style="list-style-type:disc">Providing a clear view of the different aspects of the product development</li></ul><p id="2d6e69da-14a6-4fcd-b320-1e3c9d7ae8c7" class="">A Product Roadmap is typically owned, updated and maintained by the Product Manager. Product Managers work closely with cross-functional teams and other stakeholders to gather customer, team and business insights, prioritize initiatives and align the Roadmap with the business goals.</p><p id="09cff556-b256-4566-bf0f-c56ed4095d4f" class="">Roadmaps are used by different audiences both internal and external to the product team and the organization. When creating Roadmaps, you need to understand that different audiences have different goals and objectives. For example, the Product team uses the Roadmap as a beacon that guides their work, the leadership teams use it as a strategic tool to align the product with broader business objectives while customers and investors use Roadmaps to keep themselves informed on the product’s future direction. We will dive into each of these audiences in detail as we progress through the course.</p><h3 id="59615aba-4fed-4c01-8ca7-e72d3077a056" class=""><strong>Now that you understand What a Product Roadmap is, let us look into the challenges and benefits associated with it.</strong></h3></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

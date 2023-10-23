@@ -1,0 +1,706 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Product Strategy</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="66139540-3bb3-489c-bdba-733e85687470" class="page sans"><header><h1 class="page-title">Product Strategy</h1><p class="page-description"></p></header><div class="page-body"><p id="d9a16f6f-577c-41a7-8450-2499e286f17f" class="">
+</p><h1 id="c82f455a-3226-474c-a341-7c545adc6652" class=""><strong>How to Build and Communicate a Game-Changing Product Strategy.</strong></h1><h3 id="212b558a-7b26-4a47-9679-7198ea605c47" class=""><strong>This micro-certification is divided into 3 modules:</strong></h3><ol type="1" id="3be5829e-7ba9-4f2e-b5da-8a1401470f9e" class="numbered-list" start="1"><li>Building a Product Strategy</li></ol><ol type="1" id="2698cb32-cd52-4156-8fb2-315e2a7f5b6b" class="numbered-list" start="2"><li>Communicating a Product Strategy</li></ol><ol type="1" id="58c65159-f9fd-4dd9-95bd-499d92368153" class="numbered-list" start="3"><li>Crafting an advanced Product Strategy</li></ol><p id="4367835f-2df5-4c83-8ae9-2720adc18d86" class="">Throughout the micro-certification you will have access to videos, interactive content, reading material, resources, and quizzes to help you absorb and retain the learnings better.</p><h3 id="f4eca06d-63d0-4843-8758-da7ac9a3c8fd" class=""><strong>Let&#x27;s get started!</strong></h3><p id="a445a88a-b852-4d14-aa42-d7ac00abb2b6" class="">
+</p><h1 id="4c32f389-bf87-4be5-a51b-9318863f51a7" class="">Building a Product Strategy</h1><h2 id="b558b632-12ce-4c9f-bce9-e6264ae15f34" class=""><strong>Overview of Product Strategy</strong></h2><p id="81d7facf-ca25-4745-a165-80f1753f17b3" class="">A Product Strategy is a broad plan that outlines a company&#x27;s goals and methods for achieving those goals with its product. It is the process of defining what you want to achieve and how you plan to get there. It outlines your strategic vision for a product offering by stating where the product is going, how it will get there, and why it will succeed.</p><p id="13c0ab59-b226-4ca0-a204-97461598849c" class="">Let us get started with a video that will provide a comprehensive understanding of What is Product Strategy, Why it is important, and How can you align your Product Strategy.</p><figure id="cbfc910b-3289-434a-97ac-94928665a47b" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled.png"><img style="width:1462px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled.png"/></a></figure><figure id="ba5b785d-e867-4520-9d50-2c33f7e52e6d" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%201.png"><img style="width:1462px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%201.png"/></a></figure><figure id="b5ccde94-e094-4e4f-a441-aa6557da3ace" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%202.png"><img style="width:1037px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%202.png"/></a></figure><figure id="ea2616b1-d219-428e-9424-3cae939f400e" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%203.png"><img style="width:1038px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%203.png"/></a></figure><p id="6700b10f-ce7f-4f44-a6a1-0c195ad10d76" class="">A Product Strategy answers key questions such as who the product will serve, how it will benefit them, and how it will further the company&#x27;s goals throughout the product&#x27;s lifecycle. It enables you to focus on a specific target market and feature set, instead of trying to be everything to everyone.</p><p id="bb84955a-8904-4b58-97bc-8cd1423e3a7b" class="">
+</p><h2 id="8d152696-32aa-40e8-9ef8-df36a8b38303" class=""><strong>Defining a Product Strategy</strong></h2><p id="bf8ad8ea-7a20-4f0d-8144-2e471e5fc557" class="">A good Product Strategy guides all product-related decisions, from design and engineering to marketing and sales. To create a winning Product Strategy, you need a deep understanding of the market, competition, customer needs, and the business&#x27;s strengths and weaknesses. A successful Product Strategy creates a comprehensive plan that outlines how a company, or team, will deliver value to users, set itself apart from the competition, and drive business impact.</p><h3 id="08c9315f-80a9-45cc-8755-95d4b7c0e02e" class=""><strong>A well-defined Product Strategy includes several key elements:</strong></h3><ul id="8fbfc3bb-5365-40e9-a981-31f03f969e05" class="bulleted-list"><li style="list-style-type:disc">Product Vision</li></ul><ul id="643dc6d6-def8-4a1e-84e8-f5c38163ae85" class="bulleted-list"><li style="list-style-type:disc">Insights</li></ul><ul id="7f6422e8-05d9-41d0-8fa0-5ecd5ed9e09a" class="bulleted-list"><li style="list-style-type:disc">Challenges</li></ul><ul id="0c84a93f-0548-49a2-b8c2-2daf16447004" class="bulleted-list"><li style="list-style-type:disc">Approaches</li></ul><ul id="28814948-4f92-454e-b4c0-3d89f23c2909" class="bulleted-list"><li style="list-style-type:disc">Accountability</li></ul><p id="0f97a0b6-81b0-4c64-9aaa-14b0194f3056" class="">In today&#x27;s rapidly evolving market, a strong Product Strategy is essential for companies to remain competitive, achieve their goals, and meet the evolving needs of their customers.</p><h3 id="4da074dd-3f85-4171-8d27-daee12f73c1e" class=""><strong>You can’t have Product Strategy without Product Vision or Company Vision/Mission/Goals. </strong></h3><figure id="eab0cd88-a456-42d4-98d5-88feab47bf25" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%204.png"><img style="width:1153px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%204.png"/></a></figure><figure id="f3cdc54e-acb4-4703-a1ed-ce2c2e949926" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%205.png"><img style="width:1288px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%205.png"/></a></figure><figure id="dd19672b-52cd-4edf-acb9-d47e707fdb38" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%206.png"><img style="width:1170px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%206.png"/></a></figure><h1 id="1b9af934-ae53-4bba-8ad2-37c2302bfc89" class=""><strong>Getting to Strategy</strong></h1><p id="fbd76877-1461-412f-a239-32dd30f463fc" class="">Strategy involves forming, educating, and embedding. Keep this formula in the image in the back of your mind, as it will become clearer as we progress through this module.</p><figure id="5a8f2760-9e3c-425c-ab55-7ed3e732273f" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/dGQjBsCQu6lQRleFLkqW"><img style="width:700px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/dGQjBsCQu6lQRleFLkqW"/></a></figure><h2 id="19958eab-b9c6-4514-92ec-eca1d12330b1" class=""><strong>Why is it Important?</strong></h2><p id="da77ea7f-3bdf-4de2-906b-4c6af5ba99df" class="">Product Strategy is essential for the success of any product. It provides a roadmap for product development and marketing, aligns teams around common goals, and helps companies differentiate themselves in the market.</p><figure id="41ede92c-7cc2-4662-bace-c9809f020310"><div class="source"><a href="https://youtu.be/i7DGrhL-PFE">https://youtu.be/i7DGrhL-PFE</a></div></figure><p id="a5724443-c717-440e-b87e-c95a3fa2ef83" class="">
+</p><h2 id="df871192-486e-4846-97a5-423a582fb8f2" class=""><strong><strong>Aligning your Strategies</strong></strong></h2><ol type="1" id="202f3546-1966-4609-8f57-d41413b8e561" class="numbered-list" start="1"><li>Good communication</li></ol><ol type="1" id="ef4dbc7d-66f0-473f-bd77-6972ae58c6b3" class="numbered-list" start="2"><li>Incorporate long term goal into daily operations</li></ol><ol type="1" id="e231b827-2f4d-4b2e-8f75-7d373c977a9b" class="numbered-list" start="3"><li>Determine applicable metrics</li></ol><ol type="1" id="54aa685a-e2c5-4ebf-a03e-816a1ba32679" class="numbered-list" start="4"><li>Line up your resources with your plan</li></ol><ol type="1" id="d8c3e7aa-9399-42c4-9ff5-e20deb11c745" class="numbered-list" start="5"><li>Outline Ownership</li></ol><p id="0370183e-09e4-4744-b51b-8adc1e8cce4c" class="">Overall, by ensuring you follow these you will be able to offer a framework for decision-making that will guarantee your business stays on course to meet your strategic objectives.</p><p id="d0cacb97-3717-4c0d-ab4d-573fff55d1a7" class="">
+</p><h3 id="e847cd1a-2a3e-4ef2-9340-fd6578676f9e" class="">Key aspects for aligning your Product Strategy</h3><p id="1c1f3ade-e342-493c-b3e4-49dc197f0137" class="">Incorporating long-term goals into daily operations</p><p id="2439e555-9d45-4a29-afbe-b0d00bb29b72" class="">Ensuring your resources are aligned with your plans</p><p id="44fdb3a3-bfe2-4dbf-8f6d-e05ae0cdee9a" class="">Ensure you clarify accountability in your planning</p><p id="95fe77e2-48d7-455a-9746-94aed022f654" class=""><del>Ensure you communicate things only when needed</del></p><h3 id="0cda2c6e-fcce-4656-b6cd-d97c559c258a" class="">Key elements of a well-defined Product Strategy?</h3><p id="3eef5da4-95cd-41aa-b42b-7a1192fa9029" class="">Product Vision, Insights, Challenges, Approaches and Accountability</p><p id="cd4ec259-e208-45bf-b156-ab874aa16e64" class="">
+</p><h2 id="d346bd0b-111c-4141-b3d8-57802d468eb6" class=""><strong>Crafting a Product Strategy in 6 Steps</strong></h2><h3 id="4dba4031-9246-4897-a2f3-ee1010ab4511" class=""><strong>Forming a Product Strategy requires a deep understanding of the market, customer needs, and business objectives. It consists of 6 major steps. Click on each of the steps in the interactive image below to learn more.</strong></h3><p id="fdbfab84-3f78-4630-891a-e3b8851c8520" class="">
+</p><h2 id="ca2c224b-9474-423d-8abb-e79b48e60ef8" class=""><strong>Step 1: Market Analysis</strong></h2><p id="3fce1c2e-253b-4a40-8e74-5391550de9e2" class="">Market analysis is a critical component of Product Strategy development. This step involves gathering and analyzing data on the market, including customer needs, behaviors, and pain points, as well as competitive offerings and industry trends. The purpose of market analysis is to gain a deep understanding of the market landscape and identify opportunities for your product to succeed.</p><h3 id="c3eb8f21-4805-4b9a-84af-427ef52238fe" class=""><strong>Let us look at a video explaining what market analysis is and the steps involved in the process.</strong></h3><h3 id="46d48752-d26a-457a-a16f-47415de377dc" class=""><strong>Before focusing on starting with a market analysis, make sure you design your analysis to address the following items:</strong></h3><ul id="2b452562-98cc-4b0b-b6f9-77945eda883e" class="bulleted-list"><li style="list-style-type:disc">Who are my potential users?</li></ul><ul id="e13b4886-3f47-46a7-9283-b05f603d6ecf" class="bulleted-list"><li style="list-style-type:disc">What purchasing habits do my users have?</li></ul><ul id="ef84dd3d-0628-4f83-be10-ff60eb277e04" class="bulleted-list"><li style="list-style-type:disc">What size is my intended market?</li></ul><ul id="ff32a630-2767-4314-8c7c-1b6a12eb78e5" class="bulleted-list"><li style="list-style-type:disc">What prices are my users willing to pay?</li></ul><ul id="cf41e616-cd08-4c82-aea3-a6a26fd17f6f" class="bulleted-list"><li style="list-style-type:disc">Who are my primary competitors?</li></ul><ul id="25c40c4d-0187-400e-b026-9f541edc20b8" class="bulleted-list"><li style="list-style-type:disc">What are the advantages and disadvantages of my competitors?</li></ul><h1 id="d608350c-bd96-470c-9278-339b0952bb06" class=""><strong>Steps in Market Analysis</strong></h1><figure id="5300d00b-52bb-4c09-a129-ef309bb5a53b" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%207.png"><img style="width:1036px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%207.png"/></a></figure><figure id="f7ed8d71-32d0-4c54-b626-7186436d8a5b" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%208.png"><img style="width:1041px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%208.png"/></a></figure><h1 id="b669ae10-ca64-473f-b15d-f55042a7ea21" class=""><strong>Market Analysis Benefits</strong></h1><p id="5843bf97-bcd4-47a7-86f3-651a9763d2d9" class="">Market analysis is important because it provides a deep understanding of the market landscape and identifies opportunities for the product to succeed. By understanding customer needs and preferences, the product can be designed and developed to better meet those needs. This can help improve customer satisfaction, loyalty, and retention, leading to increased revenue and profitability over time.</p><h3 id="b77fe5e6-7a91-4cfc-b04a-01b8e3fbb681" class=""><strong>There are several benefits of conducting market analysis, including:</strong></h3><ul id="e1652a6d-c212-45bb-98e1-90a401bff1e0" class="bulleted-list"><li style="list-style-type:disc"><strong>Improved decision-making:</strong> By understanding the market landscape and identifying opportunities for the product to succeed, market analysis can help improve decision-making and reduce the risk of failure.</li></ul><ul id="8b86fbf1-ffdf-4b05-9194-51b981bf630e" class="bulleted-list"><li style="list-style-type:disc"><strong>Targeted product development: </strong>By segmenting the market and understanding customer needs, market analysis can help guide product development and ensure that the product meets the needs of its target market.</li></ul><ul id="bcd1b8e0-66e0-4cae-98f1-8a96da4f056f" class="bulleted-list"><li style="list-style-type:disc"><strong>Competitive advantage: </strong>By understanding the competitive landscape and identifying gaps in the market, market analysis can help the product differentiate itself from competitors and provide a unique value prop.</li></ul><ul id="185ff8e8-2f8a-4a6b-8c25-f23a18700a30" class="bulleted-list"><li style="list-style-type:disc"><strong>Improved communication:</strong> By understanding customer needs and pain points, market analysis can help improve communication with customers, teams, and other stakeholders, leading to better alignment and collaboration.</li></ul><ul id="2f966ab9-12f1-465d-9d0e-53077788b2f4" class="bulleted-list"><li style="list-style-type:disc"><strong>Increased revenue: </strong>By identifying opportunities for the product to succeed and improving customer satisfaction and retention, market analysis can lead to increased revenue and profitability over time.</li></ul><p id="9a0aeaf0-082a-4f73-8a95-76db6ecbfeb0" class="">
+</p><h2 id="1925e186-acbd-4563-9d5d-146fee491400" class=""><strong>Step 2: Customer Analytics</strong></h2><p id="0f7bc0be-87a8-4472-b02f-068737bcf1e7" class="">We are now switching gears and diving into customer analytics, which is a critical component of market analysis and Product Strategy development. Customer analytics is a careful examination of the data a business gathers on its customers. Teams can use customer analytics to identify, attract, and retain customers to drive growth.</p><p id="af8e8224-3896-47cf-9c22-9d91ba38a62d" class="">This process involves identifying the target customer segments and understanding their needs, behaviors, and preferences. The purpose of customer analytics is to gain a deep understanding of the customer and develop a product that meets their needs and solves their problems.</p><h3 id="d57e4820-50df-4d6c-bd4d-6deda802ed0e" class=""><strong>Let us take a look at a video explaining Customer Analytics in details:</strong></h3><h1 id="20f089d2-3c74-48f2-a3f0-1d2395b3ece6" class=""><strong>Steps involved in Customer Analytics:</strong></h1><h3 id="fa2165e2-a129-4dc2-8a8b-aab47f49eced" class=""><strong>1. Identifying target customer segments</strong></h3><p id="c7a0d495-9ff0-4018-9550-3dc041c85728" class="">The first step in customer analytics is to identify the target customer segments for the product. This can be done using demographic, psychographic, and behavioral data, as well as market research and competitive analysis.</p><p id="54ecd277-c8d2-49f2-a737-412e4485cfef" class="">First of all, determine whether your market is viable and substantial. After that, divide the market into groups of customers with similar tastes and spending patterns. The car market, for instance, is divided into various segmented divisions, first by gender, age, class, etc.</p><p id="79a8c6a6-f8f1-4b2e-abbb-ed6adf2834f5" class=""><strong>2. Segment the customer base</strong></p><p id="51cd247d-dabe-40c2-9772-3878927a8922" class="">As soon as the target customer segments have been identified, they can be segmented into smaller groups based on common needs, preferences, and behaviors. This allows for a more targeted and effective Product Strategy.</p><p id="9ad7adcd-5704-4a1c-95f3-3f234b5a3642" class="">Some useful questions to consider when segmenting your customer base are:</p><ul id="5fe04aec-4068-43ad-9d65-20b0a8a070c3" class="bulleted-list"><li style="list-style-type:disc">What are your customers buying habits and preferences?</li></ul><ul id="ae24af9f-a5ff-41e4-b995-f4f4a2bdef73" class="bulleted-list"><li style="list-style-type:disc">Who makes the purchasing decision?</li></ul><ul id="01426cba-a36c-4e2c-a861-9b885cc26a51" class="bulleted-list"><li style="list-style-type:disc">How frequently do they buy a product?</li></ul><ul id="5359bc1b-a069-4019-8a72-9bf682ce9c2b" class="bulleted-list"><li style="list-style-type:disc">What incentivizes a purchasing decision?</li></ul><p id="3f65fc6e-75fe-4db3-9745-159e33097585" class="">After that, concentrate your marketing efforts on showing them how your product and service will fit into their lifestyle and best satisfy their demands.</p><p id="f7f233df-6ffc-4455-9b8c-b4da49628d47" class=""><strong>3. Gather Data</strong></p><p id="c8adabd4-9135-464e-9986-a0bab21e02c8" class="">The next step in customer analytics is to gather data on the target customer segments. At each stage of your process, ask your clients for input to determine their needs and preferences. There are several approaches to determining the demands of your customers. Click on the tabs in the images below to explore further.</p><figure id="02100bc9-a7ef-453a-a668-83204e4b5af2" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%209.png"><img style="width:1075px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%209.png"/></a></figure><figure id="32d9566e-6d21-43a8-8e58-3c37c6a4202c" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2010.png"><img style="width:1075px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2010.png"/></a></figure><figure id="17c0b113-e2bc-4440-b3de-cdc35e6d573f" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2011.png"><img style="width:1070px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2011.png"/></a></figure><p id="a434e718-77fc-4726-994c-8b8d6db21b55" class=""><strong>4. Analyze the data</strong></p><p id="d4cbaed4-196f-401d-825a-b905834d8362" class="">After gathering data, develop customer insights and communicate your results to your colleagues. Utilize these insights to spot possibilities to modify your products or services—or ways that you describe them on your website—better in order to facilitate conversions more easily.</p><p id="1708285f-8fd1-4575-a995-f25257556df4" class="">The goal is to replace quicker marketing efforts with more proactive, strategic, and data-driven ones by conducting this kind of research and routinely sharing the findings with your team.</p><h3 id="862b4ad1-4b72-4b11-93b9-f198a56eb9fa" class=""><strong>5. Develop customer personas</strong></h3><p id="fc4123ef-6e7b-405b-834e-3972a7fc54bc" class="">The final step in customer analytics is to develop customer personas. This involves creating detailed profiles of the target customer segments, including their goals, challenges, preferences, and behaviors.</p><p id="0dba655f-bdb6-4f68-8415-a49ed2b1317b" class="">Customer personas, also known as user personas, are fictitious, composite characters that represent a subset of your customers and are created using data from market research. They clearly depict subsets of key user segments and can help product teams and stakeholders better understand and empathize with user mindsets and needs.</p><h1 id="6afe78f1-f098-4666-bb66-e94f6a18038a" class=""><strong>Customer Analytics Benefits</strong></h1><p id="8b09746b-d675-41fd-ade9-b188f8e5dfaa" class="">Customer analytics is important because it provides a deep understanding of the target customer and their needs. By understanding customer needs and pain points, the product can be designed and developed to better meet those needs. This can help improve customer satisfaction, loyalty, and retention, leading to increased revenue and profitability over time.</p><h1 id="2dc1b075-a67f-4566-bd5e-bfdeba17670c" class=""><strong>Pro Tip: Customer Analytics</strong></h1><p id="d73ca4f5-15cb-41a1-ae1c-c8db819ef450" class="">The best practices and customer experience metrics listed below can help you build successful customer interactions:</p><ol type="1" id="045e53b8-6e96-4d8f-90f7-a6a88d926ce7" class="numbered-list" start="1"><li>Examining all available distribution options while keeping the client in mind.</li></ol><ol type="1" id="cda2eadf-65e7-461e-b38b-577998921f56" class="numbered-list" start="2"><li>Assessing consumer perceptions of the brand and their level of satisfaction.</li></ol><ol type="1" id="a36d870b-479a-4970-a1ef-fca48bf5beb0" class="numbered-list" start="3"><li>Engaging customers into using the appropriate channel and at the appropriate time.</li></ol><ol type="1" id="d8cce982-f59a-47d8-bc45-92873ba8f5b8" class="numbered-list" start="4"><li>Determining the churn rate and take steps to increase the lifetime value of each customer.</li></ol><p id="f08263cf-d02c-43fa-9f1b-8f3bb51ab4c7" class="">
+</p><h2 id="7761d947-2465-4247-9857-e9e5aa55f60d" class=""><strong>Step 3: Product Vision &amp; Mission</strong></h2><p id="0570ad24-7dd9-4466-afb2-53e42b268898" class="">Let’s give attention now to the product vision and mission, which are essential components of Product Strategy because they provide a high-level view of the purpose and goals of the product, as well as the desired outcomes and impact.</p><p id="ecee8dfd-d156-4b25-9b63-5c975c20c868" class="">The product vision and mission should be aligned with the overall business strategy and should guide all decision-making related to the product.</p><p id="9b0a2166-1868-4cc9-98b0-c18a089bd25c" class="">The product vision is a statement that describes the desired future state of the product. It should be inspiring, compelling, and easy to understand. The product vision should provide a clear and concise description of the product&#x27;s unique value proposition and the impact it will have on the market and customers.</p><h3 id="5af947c7-5b0a-4f3e-a30c-61b91277222c" class=""><strong>Let us look at a video explaining product vision and mission.</strong></h3><p id="375f522c-2adb-4390-a80c-0c8640b08ea4" class="">
+</p><p id="7c7f9977-abf0-49db-8dc5-86c1c4ab4ff9" class="">
+</p><h1 id="e912fc95-ea6a-44ba-a987-dead28c75b71" class=""><strong>Steps in Defining Product Mission &amp; Vision</strong></h1><figure id="38b4b6df-f53f-4bb5-a06e-9a4e6a2f5cea" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2012.png"><img style="width:770px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2012.png"/></a></figure><figure id="a2b6f889-fd4d-4a1f-8e94-b480e2c8d2f5" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2013.png"><img style="width:771px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2013.png"/></a></figure><figure id="6a619361-2080-478b-9059-9bace73c2757" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2014.png"><img style="width:770px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2014.png"/></a></figure><figure id="d68053f1-56cb-4710-8f99-a0ff6d8308a6" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2015.png"><img style="width:766px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2015.png"/></a></figure><h1 id="43f19635-39e5-454d-8e12-cc9b1fab75cc" class=""><strong>Product Mission &amp; Vision Benefits</strong></h1><p id="ecf128e4-167e-47fc-a340-98bf1ec98be1" class="">The product vision and mission are important because they provide a clear direction for the product and guide all decision-making related to the product. They help ensure that the product is aligned with the overall business strategy and focused on achieving specific goals and objectives.</p><h3 id="c9493cc9-0639-4000-8906-2949c7fb51d8" class=""><strong>There are several benefits of having a clear product vision and mission, including:</strong></h3><ul id="93c19917-0088-4fed-b8b0-657cdf79d9a8" class="bulleted-list"><li style="list-style-type:disc"><strong>Alignment</strong>: It helps align stakeholders around common goals and objectives, ensuring that everyone is working towards the same desired outcomes.</li></ul><ul id="de31dfaa-ee29-4f59-afae-cd9d0d1ad85c" class="bulleted-list"><li style="list-style-type:disc"><strong>Focus</strong>: It helps focus efforts and resources on the most important initiatives and milestones required to achieve the desired outcomes.</li></ul><ul id="a6e3ea0f-253f-45a4-ab3f-79f6cb736a08" class="bulleted-list"><li style="list-style-type:disc"><strong>Decision-making</strong>: It provides a framework for decision-making, making it easier to evaluate opportunities and make informed decisions.</li></ul><ul id="13d397bf-8350-4e62-978c-96a7f9a70686" class="bulleted-list"><li style="list-style-type:disc"><strong>Communication</strong>: It provides a clear and consistent message about the product, making it easier to communicate with customers, partners, and other stakeholders.</li></ul><ul id="47fa3875-50b7-44fd-9acf-9f9ad17717c0" class="bulleted-list"><li style="list-style-type:disc"><strong>Inspiration</strong>: It can inspire and motivate teams, helping to create a sense of purpose and passion for the product.</li></ul><p id="d38cc54f-865c-491f-90a4-f20abe956038" class="">
+</p><h2 id="47f894fa-2cd6-4079-8c28-78e738a61ec6" class=""><strong>Step 4: OKRs</strong></h2><p id="e5bd4cb1-0d05-4fef-8567-50b14e5a0e52" class="">Let’s have a look at how to craft solid OKRs for our Product Strategy. OKR stands for ‘Objectives and Key Results,’ and this is a goal-setting formula that ensures everyone is working on tasks aligned with the greater strategy. Setting OKRs when developing a Product Strategy can help to guarantee that your team is focused, accountable, and adaptable.</p><h3 id="391c1aca-a8a2-4395-81c2-86a4a62848b1" class=""><strong>Let us take a look at a video explaining OKRs, how to create effective OKRs, benefits of OKRs and an example.</strong></h3><h1 id="8f6a9fed-10c7-4213-b77f-2a0e5a5c9a5b" class=""><strong>Steps for creating OKRs</strong></h1><figure id="41e55c02-86e5-42c5-80f5-0b87cafd2e4b" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2016.png"><img style="width:978px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2016.png"/></a></figure><h1 id="ab0523ac-850a-4c97-ba5d-848f8aab4c69" class=""><strong>An Example of OKRs</strong></h1><p id="b8339284-4882-4823-9514-7927552b294b" class="">Your objective is to increase user engagement on your mobile app</p><h3 id="be76104a-4224-46b3-9c4e-1a0c4026c5d8" class=""><strong>Your Key results are to:</strong></h3><ul id="57487363-bff5-4156-8f38-759357c5c35d" class="bulleted-list"><li style="list-style-type:disc">Increase daily active users by 20% within the next quarter</li></ul><ul id="da721383-6ca9-4925-aa51-7a7a662c92d3" class="bulleted-list"><li style="list-style-type:disc">Increase average session duration by 10% within the next quarter</li></ul><ul id="99446746-4fae-4708-8b99-49a40229b66f" class="bulleted-list"><li style="list-style-type:disc">Increase the number of user reviews by 50% within the next quarter</li></ul><h3 id="dbca3233-4ea1-47a5-8095-9261f694ba42" class=""><strong>Your Targets are to :</strong></h3><ul id="d92ddde7-f820-4113-a023-f6741ea7a322" class="bulleted-list"><li style="list-style-type:disc">Increase daily active users from 10,000 to 12,000 within the next quarter</li></ul><ul id="252bfb9b-035b-4f80-b778-aa56fd07dafc" class="bulleted-list"><li style="list-style-type:disc">Increase average session duration from 5 minutes to 5.5 minutes within the next quarter</li></ul><ul id="fcf18b79-3982-43b9-bf53-c30809ae1ae6" class="bulleted-list"><li style="list-style-type:disc">Increase the number of user reviews from 100 to 150 within the next quarter</li></ul><h3 id="41b53c67-40d9-482c-a01d-bb5be29528b7" class=""><strong>Ownership: </strong><strong>Product Manager and Mobile Development team</strong></h3><blockquote id="42a22129-39f2-4d0a-9e51-0cc74dfb3898" class="">Keep in mind that good OKRs ought to be clear, quantifiable, doable, pertinent, and time-bound. These procedures will enable you to develop OKRs that support your Product Strategy and advance the realization of your product vision.</blockquote><h1 id="998e1dab-dd3f-4912-a16f-4c13c070b048" class=""><strong>Benefits</strong><strong> of OKRs</strong></h1><p id="78284cc6-dd64-47b0-8355-9b3171ea9cee" class="">OKRs (Objectives and Key Results) offer several benefits for Product Strategy:</p><ul id="a0b667e3-332b-4c2e-aafc-21b8cee17ffd" class="bulleted-list"><li style="list-style-type:disc"><strong>Focus</strong>: OKRs help define precise, quantifiable goals aligned with your overall Product Strategy. Clear objectives ensure your team concentrates on the most important goals for your product</li></ul><ul id="c4d27d23-034d-404e-8f39-87dde1380925" class="bulleted-list"><li style="list-style-type:disc"><strong>Alignment</strong>: OKRs provide a common language and understanding for the product development team. When everyone agrees on the objectives and key results, collaboration and joint effort towards a common goal become easier</li></ul><ul id="e4ac57ba-6eff-48a9-84f9-cf20a5b66352" class="bulleted-list"><li style="list-style-type:disc"><strong>Accountability</strong>: Clear, measurable targets and key results enable you to hold team members responsible for goal attainment. This ensures that everyone works towards the same objectives and achieves them</li></ul><ul id="d3d0c09e-d5dd-4e2d-9741-25afd9945d39" class="bulleted-list"><li style="list-style-type:disc"><strong>Flexibility and adaptability</strong>: OKRs allow for adjustments to reflect changes in your product and business goals. They help ensure your Product Strategy remains in line with your broader business plan</li></ul><p id="e6a7059c-e851-4ad4-a4b1-9ae28c17131a" class="">
+</p><h2 id="b80c8471-4af2-439e-bae6-e62a99e0dea2" class=""><strong>Step 5: Roadmap</strong></h2><p id="ae79c991-0956-4b0f-b9cb-6300923f6ed3" class="">Your Product Roadmap is a high-level plan that outlines the major initiatives and milestones required to achieve your product vision and mission. Your roadmap provides a strategic overview of the product&#x27;s development and helps prioritize resources and investment. A product roadmap should be aligned with the product vision and mission and should guide all decision-making related to the product.</p><h3 id="b53a6519-aa2d-4aa6-bd3b-b2c9859e3ff9" class=""><strong>Let us look at a video that will explain Product Roadmapping.</strong></h3><h1 id="adf003e8-2202-461a-a5b0-01c7c029f00e" class=""><strong>Steps for Crafting your Product Roadmap</strong></h1><figure id="94b7e7e1-314d-42a0-9457-29cd7fad9f22" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2017.png"><img style="width:808px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2017.png"/></a></figure><figure id="c1d0b918-70a7-4b0f-8ec2-e90b1bbd0c73" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2018.png"><img style="width:783px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2018.png"/></a></figure><figure id="7b5c3797-fc66-4363-bc9f-9bc91cab1b64" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2019.png"><img style="width:807px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2019.png"/></a></figure><figure id="5ff2d880-8763-4e2a-80cc-7dc67e907b56" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2020.png"><img style="width:821px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2020.png"/></a></figure><figure id="518d4e98-a08a-49d3-ae76-94122b9fd3b3" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2021.png"><img style="width:812px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2021.png"/></a></figure><h1 id="e1c42e00-cfc8-4489-8e0f-cdd267ef59ce" class=""><strong>Example of a Product RoadmapBenefits of Product Roadmap</strong></h1><figure id="e6fdc4c2-772c-424b-b5b6-e08201db61e2" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/8UPwNli8Qnq1cHVPm6eM"><img style="width:700px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/8UPwNli8Qnq1cHVPm6eM"/></a></figure><h3 id="3f0fd3dc-0ba4-4501-98f4-5d2ab2957ae9" class=""><strong>There are several benefits of having a clear product roadmap, including:</strong></h3><ul id="bb556707-28b8-4b11-8253-cd0010d9d731" class="bulleted-list"><li style="list-style-type:disc"><strong>Alignment</strong>: A clear product roadmap helps align stakeholders around common goals and objectives, ensuring that everyone is working towards the same initiatives and milestones.</li></ul><ul id="50f43029-8da9-44a9-9459-b5d8222e0a14" class="bulleted-list"><li style="list-style-type:disc"><strong>Focus</strong>: A clear product roadmap helps focus efforts and resources on the most important initiatives and milestones required to achieve the product vision and mission.</li></ul><ul id="c354da70-8ac8-4c5c-8d1d-b6f83506594d" class="bulleted-list"><li style="list-style-type:disc"><strong>Communication</strong>: A clear product roadmap provides a clear and consistent message about the product&#x27;s development, making it easier to communicate with customers, partners, and other stakeholders.</li></ul><ul id="5cf87b59-1f30-45ea-9599-6cb7afe2d094" class="bulleted-list"><li style="list-style-type:disc"><strong>Resource allocation</strong>: A clear product roadmap helps prioritize resources and investment, ensuring that they are focused on the most important initiatives and milestones.</li></ul><ul id="4c352392-a782-4c53-915a-61d6afff0bbb" class="bulleted-list"><li style="list-style-type:disc"><strong>Risk management</strong>: A clear product roadmap helps manage risks by identifying potential challenges or barriers to success and developing plans to mitigate them.</li></ul><blockquote id="8afdc1b8-f7bc-40a5-92d0-e73043830998" class="">In summary, a product roadmap is a high-level plan that outlines the major initiatives and milestones required to achieve the product vision and mission. It provides a strategic overview of the product&#x27;s development and helps prioritize resources and investment. Developing a product roadmap involves identifying the major initiatives, prioritizing them, defining the milestones, and creating the roadmap. A well-defined product roadmap is critical for the success of the product and the overall business.</blockquote><p id="69fa5d22-b21a-4859-98a1-b8507c06497c" class="">
+</p><h2 id="14d8131f-2fb4-4536-9f33-aa5c22fafc19" class=""><strong>Step 6: Prioritization</strong></h2><p id="102e46f7-cf0f-4035-9f41-8adf4648fab3" class="">Prioritization is another step we want to discuss in further detail because it is a key component of Product Strategy development.</p><p id="3ef859a6-1fb4-4a79-9574-f6d6611e76f9" class="">It involves identifying the most important initiatives and milestones required to achieve the product vision and mission and prioritizing them based on their strategic importance, resource requirements, and potential impact. Prioritization helps ensure that resources are focused on the most important initiatives and that investment is aligned with the overall business strategy.</p><h3 id="2794ea37-0363-4f49-bc33-4f4c000e5dc7" class=""><strong>Let us look at a video explaining Prioritization in details.</strong></h3><h1 id="8a28df46-438d-407c-878f-5abd6d3be07e" class=""><strong>Steps involved in Prioritization</strong></h1><figure id="2ab4b4f3-b0be-4ec0-b247-7a247baa0ef7" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2022.png"><img style="width:815px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2022.png"/></a></figure><figure id="d4b4d294-5c37-4ca9-946b-02ec9e93eb21" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2023.png"><img style="width:811px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2023.png"/></a></figure><figure id="d2bc8555-213c-43f8-92ad-1dc343309041" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2024.png"><img style="width:808px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2024.png"/></a></figure><figure id="f4f6add6-cd92-40f6-9b99-0288e8b311cf" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2025.png"><img style="width:786px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2025.png"/></a></figure><figure id="c80c64e6-b7ac-4d84-a819-175c4c8ef8ed" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2026.png"><img style="width:805px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2026.png"/></a></figure><h1 id="33be70a9-d395-47ce-9f9d-5f752b430514" class=""><strong>Benefits of Prioritization</strong></h1><p id="c4ab89ed-8be5-4e68-b213-0919c87ee036" class="">There are several benefits of effective prioritization, including:</p><ul id="4c680c21-24f8-4be5-9361-6ce7c5e6e861" class="bulleted-list"><li style="list-style-type:disc"><strong>Resource allocation</strong>: Effective prioritization helps ensure that resources are focused on the most important initiatives, leading to a more efficient and effective use of resources.</li></ul><ul id="a0974d7f-eec3-44fc-b616-2085d8cd377e" class="bulleted-list"><li style="list-style-type:disc"><strong>Strategic alignment</strong>: Effective prioritization ensures that investment is aligned with the overall business strategy and that initiatives are focused on achieving specific goals and objectives.</li></ul><ul id="16b09fc7-6eb8-44c1-bebc-800b5c05850f" class="bulleted-list"><li style="list-style-type:disc"><strong>Risk management</strong>: Effective prioritization helps manage risks by identifying potential challenges or barriers to success and developing plans to mitigate them.</li></ul><ul id="2df43b87-c76a-4974-8dc4-2c8097493fc2" class="bulleted-list"><li style="list-style-type:disc"><strong>Customer satisfaction</strong>: Effective prioritization ensures that customer needs and preferences are taken into account, leading to a product that better meets their needs and improves their satisfaction and loyalty.</li></ul><ul id="58041d7f-d8d0-4623-8439-bba5e84429e0" class="bulleted-list"><li style="list-style-type:disc"><strong>Competitive advantage</strong>: Effective prioritization helps identify opportunities for differentiation and provides a competitive advantage by focusing investment on initiatives that are unique and valuable to customers.</li></ul><p id="cfd46f99-298e-4457-80d1-2a0b2ae9bdfa" class="">Effective prioritization ensures that resources are concentrated on the most crucial projects, that investments are in line with the overall business plan, and that the final product satisfies consumer expectations and gives the company a competitive edge. For the success of the product and the business as a whole, a prioritization strategy that is properly implemented is crucial.</p><blockquote id="0cb12d41-742c-48fc-9b9d-2dc7e7056317" class="">In conclusion, prioritization is a key part of creating a Product Strategy. It entails determining the most crucial projects and benchmarks necessary to carry out the product&#x27;s vision and mission and ranking them in order of strategic relevance, resource needs, and potential impact.</blockquote><p id="52477bce-83d0-4e27-b850-6863e9b66207" class="">
+</p><h1 id="b50dd7ab-2c8a-4d6c-8b7a-3b03d41ba95f" class="">Why is market analysis important in forming a Product Strategy? (Select all that apply)</h1><ul id="3c6c598e-e9fa-456b-b7c6-d13108c59016" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">It helps improve desion-making</span><div class="indented"></div></li></ul><ul id="c5688cc0-1453-48ee-8176-152a329e750e" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">It allows for segmenting the market for targeted development</span><div class="indented"></div></li></ul><ul id="45d8b15e-7f09-4773-a454-b63587fd063c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">It increases revenue through product success and higher customer satisfaction</span><div class="indented"></div></li></ul><ul id="f973ec26-2a84-47bd-96d0-13f0df6c0f0f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked">It helps understand market landscape for better decision-making</span><div class="indented"></div></li></ul><p id="7fdd6cb1-8f9f-4ba0-a518-50b05f8862e0" class="">
+</p><h2 id="8f3b2be2-e75c-4e36-9a2c-550a821de7c0" class=""><strong>Summary</strong></h2><p id="4439eae0-85c7-4d7d-bf78-17efe6fdba6f" class="">A successful Product Strategy is customer-centric, market-oriented, prioritized, measurable, data-driven, innovative, special, adaptable, well-resourced, and effectively communicated.</p><p id="933598da-0ffc-4dd4-b7df-f585d83f8412" class="">Alignment among stakeholders is vital. Create a communication strategy, engage in two-way communication, use data, and tailor communication to stakeholders&#x27; needs. Regular review ensures alignment with trends and objectives.</p><p id="a57b3697-0204-4533-8075-0a226216c961" class="">A winning strategy guides decisions and is continuously updated for value. It leads to achieving goals and driving growth. By following these steps and attributes, you can achieve success, align stakeholders, meet customer needs, and drive business growth.</p><h1 id="24f317ce-4b42-4526-ba63-0467a2a71b65" class=""><strong>What is and What is Not a Product Strategy</strong></h1><p id="3d872ead-b687-4c2a-b217-7d20138c6731" class="">
+</p><figure id="5101c3d2-6326-48b5-96a1-a17077b6fd37" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/xlVZGN3RTyj13hWT1lYw"><img style="width:690px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/xlVZGN3RTyj13hWT1lYw"/></a></figure><figure id="15f7df94-3867-4da5-955c-835c8fb72634"><div class="source"><a href="https://docs.google.com/spreadsheets/d/16I5nPBKPzXIY3geX-cKvzt26F8KqtHB9rux6tYFvkik/edit?usp=sharing">https://docs.google.com/spreadsheets/d/16I5nPBKPzXIY3geX-cKvzt26F8KqtHB9rux6tYFvkik/edit?usp=sharing</a></div></figure><p id="b50d5207-de07-4b90-9092-dab048d632a8" class="">
+</p><p id="0d8524f6-ed63-4977-853d-13f7cacd635e" class="">
+</p><h2 id="7468e7df-a60d-4a51-b34e-af8e7cd30fb6" class=""><strong>Communicating Product Strategy to Drive Stakeholder Alignment</strong></h2><p id="3526625b-bc9e-47bf-8d90-a1ebdaef162a" class="">Having an excellent Product Strategy won’t get you far if no one knows about it! That&#x27;s why we will now focus on effectively communicating your Product Strategy. Communicating the Product Strategy ensures that everyone is working towards the same goals and objectives, aligned with the product vision and mission.</p><p id="449beed9-1c3d-4678-a189-950dd1c70aa7" class="">This involves several steps, including identifying key stakeholders to involve, determining the best communication methods, and establishing a feedback mechanism to assess progress against well-documented and measured KPIs or OKRs.</p><h3 id="3ddc4fc5-4089-4d68-9d9e-7762160b76a1" class=""><strong>Let us look at a video explaining these steps.</strong></h3><figure id="387dba0f-2011-45d6-9dc5-782c33c1e3a6" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2027.png"><img style="width:1226px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2027.png"/></a></figure><figure id="4c8df7c9-4c50-41e7-a254-eae3f3a426ba" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2028.png"><img style="width:1226px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2028.png"/></a></figure><figure id="ee50cd81-53f7-4875-8944-d333659bf08a" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2029.png"><img style="width:1223px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2029.png"/></a></figure><figure id="1ec1e131-137c-4088-8c0c-6f9c36c53c98" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2030.png"><img style="width:1221px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2030.png"/></a></figure><figure id="2c13bd9d-6f71-4c79-acfc-e3a00ae5ba27" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2031.png"><img style="width:1220px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2031.png"/></a></figure><figure id="f80e925f-0831-4913-b1a1-2019b695d1af" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2032.png"><img style="width:1220px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2032.png"/></a></figure><p id="730fcf62-e2f3-4711-b353-da139b304e16" class="">
+</p><h1 id="354797f1-39ee-40c0-8db9-8a867a634639" class=""><strong>Steps involved in Communicating Product Strategy</strong></h1><blockquote id="5a670a0e-500a-45e3-a2e0-05e32641f1b9" class="">Effective communication of Product Strategy is essential for driving stakeholder alignment. In addition to the steps just mentioned, product managers should also be transparent, honest, and open in their communication. They should be willing to admit when things are not going according to plan and be proactive in addressing concerns and issues raised by stakeholders. By following these steps and engaging in fruitful communication, product managers can build trust and credibility with stakeholders, drive alignment around the Product Strategy, and ultimately, deliver a successful product that meets customer needs and drives business growth.</blockquote><p id="23b3f019-63e6-4eb3-9874-26c1923eb415" class="">
+</p><h2 id="2ee7e527-ffca-47a3-a89a-43dbf89e3a31" class=""><strong>Developing a Communication Plan</strong></h2><p id="7d0a8225-0609-4350-affa-66c9ed2b9ec8" class="">No product manager can oversee every phase and task of a product&#x27;s development on their own. Any successful product is the result of a talented, knowledgeable team cooperating on a shared strategic goal. Keeping this in mind, a wise product manager should invest at least equal amounts of time, effort, and attention into iteratively communicating with their teams and stakeholders as they do in the other tasks required to launch their products.</p><p id="e51fd012-329b-41a1-a238-109ed44db806" class="">Developing a communication plan is essential for ensuring that the Product Strategy is effectively communicated to stakeholders and that everyone is aligned around the product vision and mission.</p><h3 id="f4821b2e-41dc-4d05-aec1-3578a0f2ebc1" class=""><strong>Let us look at a video explaining How to Develop a Communication Plan.</strong></h3><h1 id="f0bf79e4-7459-46af-b456-7592e20fe75d" class=""><strong>Steps for D</strong><strong>eveloping a Communication Plan</strong></h1><figure id="7dc4d474-5208-4db7-8763-6d3e60ac9dd0" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2033.png"><img style="width:667px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2033.png"/></a></figure><h1 id="a4d8097f-ba71-4409-81ac-e754a6edd18d" class=""><strong>Developing a Communication Plan: Tips</strong></h1><figure id="21205a25-e99b-42bb-9155-b2ee4aab5f8c" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2034.png"><img style="width:566px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2034.png"/></a></figure><h1 id="3bbe69d6-7510-4cb1-87f5-115d43e686f1" class=""><strong>Benefits of effective communication of Product Strategy</strong></h1><p id="8b323390-c619-4ebf-a99f-65b5cfac97c3" class="">There are several benefits of effective communication of Product Strategy, including:</p><ul id="73506de6-e680-48b9-a8f8-4442184428ac" class="bulleted-list"><li style="list-style-type:disc"><strong>Alignment</strong>: Effective communication helps ensure that all stakeholders are aligned around the product vision and mission and that everyone is working towards common goals and objectives.</li></ul><ul id="6b442c52-bbcd-4678-8496-965cdd42cab8" class="bulleted-list"><li style="list-style-type:disc"><strong>Clarity</strong>: Effective communication provides a clear and consistent message about the Product Strategy, making it easier for stakeholders to understand and support the strategy.</li></ul><ul id="74bd5f8c-a806-4b33-90e9-e398e2684518" class="bulleted-list"><li style="list-style-type:disc"><strong>Support</strong>: Effective communication helps generate support and buy in for the Product Strategy by highlighting the key initiatives and milestones required to achieve the product vision and mission.</li></ul><ul id="7e4b213d-fe28-4ce1-8300-74dc97c1deb1" class="bulleted-list"><li style="list-style-type:disc"><strong>Engagement</strong>: Effective communication helps engage stakeholders by providing regular updates and opportunities for feedback and input.</li></ul><ul id="c970aa92-334e-42d5-adac-ddbae3dee2ca" class="bulleted-list"><li style="list-style-type:disc"><strong>Accountability</strong>: Effective communication helps establish accountability by ensuring that all stakeholders are informed and aligned around the Product Strategy and are responsible for their part in achieving the product vision and mission.</li></ul><blockquote id="3040b67b-33a7-483e-b8ca-5b6ff7cb78fc" class="">In conclusion, communicating your Product Strategy is an essential part of product management. It entails precisely articulating the product vision and mission, identifying the key activities and roadmap items necessary to realize the vision and mission, and creating a communication plan to make sure that all stakeholders are aware and support the Product Strategy. A successful product and company are the result of effective Product Strategy communication, which promotes alignment, clarity, support, engagement, and accountability.</blockquote><p id="d0e0b07a-39aa-4492-aa5d-b76cbcb22ca1" class="">
+</p><h2 id="cef42a5a-61d2-4ce1-855d-53108dbe7342" class=""><strong>Product Strategy Examples</strong></h2><p id="df481f85-e194-49ef-8649-96a8821fcd84" class="">Having set the foundations of what Product Strategy is, how to build it and why it’s important, we believe that having a look at Product Strategy examples is a great way to learn about different approaches to building a winning Product Strategy.</p><h3 id="def4dae3-8a09-4d6e-a325-d744aa873366" class=""><strong>Let us look at this video where you will learn about three companies that have developed successful Product Strategy.</strong></h3><h1 id="970aaeeb-16a0-455d-863f-583c9568ee6f" class=""><strong>Three Companies that have Developed Successful Product Strategies</strong></h1><figure id="ed8254ef-bd07-4534-b80a-a52314cab197" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/CtpTdkCSOOfXqzRVEUHA"><img src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/CtpTdkCSOOfXqzRVEUHA"/></a></figure><p id="61680b37-0946-41f3-866a-cc7e3aa5661f" class="">Apple&#x27;s Product Strategy is centered on developing top-notch, cutting-edge goods that are both aesthetically beautiful and user-friendly. The seamless environment created by Apple&#x27;s products makes it simple for users to switch between different devices and access content.</p><h3 id="0fc1203e-ac94-40f4-9002-1c3e83c23054" class=""><strong>Key elements of Apple’s Product Strategy</strong></h3><figure id="7ad8b4f1-9de0-48b5-ac5b-21fd6b0ef5bd" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2035.png"><img style="width:552px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2035.png"/></a></figure><blockquote id="f75f9352-2568-455c-8a3f-0f8b75c1d914" class="">In general, Apple&#x27;s Product Strategy centers on developing excellent, innovative goods that are simple to use and that smoothly integrate with one another. The company&#x27;s emphasis on design, innovation, integration, premium pricing, and customer experience has contributed to its success in the technology sector, making it one of the most successful in the world.</blockquote><figure id="e55d7dd3-3013-42b6-899e-334f0e4f310d" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/guPaae21QcKMklWCBeGN"><img src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/guPaae21QcKMklWCBeGN"/></a></figure><p id="c369760c-975d-4cba-80b4-91999339e5b2" class="">The foundation of Amazon&#x27;s Product Strategy is the provision of a broad range of goods and services at affordable costs with an emphasis on comfort, efficiency, and customer pleasure. The spectrum of product categories offered by Amazon includes retail, cloud computing, artificial intelligence, entertainment, and many more.</p><h3 id="fc6fd896-2ae5-4811-99c4-8dbabbebdf30" class=""><strong>Crucial Components of Amazon&#x27;s Product Strategy</strong></h3><figure id="89bf39bd-ec2d-4dd1-b49a-b57591b5bd52" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2036.png"><img style="width:555px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2036.png"/></a></figure><p id="8e66aeb6-ce56-4ec8-aeef-0fbf1f784eaa" class="">Amazon&#x27;s product portfolio includes products such as the Kindle, Echo, and Fire TV, as well as a wide range of services such as Amazon Prime, Amazon Music, and Amazon Web Services.</p><blockquote id="5f562f42-690d-4f2d-9662-b3b4fd02773c" class="">In general, Amazon bases its Product Strategy on offering a large range of goods and services at affordable rates, with an emphasis on comfort, efficiency, and customer pleasure. The company has grown to be among the biggest and most prosperous merchants and technology companies in the world thanks to its emphasis on innovation, logistics, ecosystem, and customer-centric strategy.</blockquote><figure id="5092341a-0360-45a7-8e97-021a93fc851c" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/xubuLdPEThevMrSmK6Br"><img src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/xubuLdPEThevMrSmK6Br"/></a></figure><p id="19f737a8-5f8d-44f4-b1db-16d7609add75" class="">By providing electric automobiles with cutting-edge technical features, Tesla&#x27;s Product Strategy aims to upend the conventional auto business. The company&#x27;s mission is to hasten the global switch to sustainable energy by creating and manufacturing renewable energy and electric car technologies.</p><h3 id="01087953-8160-4f15-a032-75a2827e66e5" class=""><strong>Crucial Components of Tesla&#x27;s Product Strategy</strong></h3><figure id="5c8e8739-cbd3-48c9-a1a3-68aa513ec767" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2037.png"><img style="width:550px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2037.png"/></a></figure><p id="ee71be95-01d1-4248-bc5d-98eacb51c58e" class="">Tesla&#x27;s product portfolio includes electric cars such as the Model S, Model X, and Model 3, as well as energy products such as solar panels and energy storage solutions.</p><blockquote id="c98dc5f0-60e2-48d1-9c86-6bbc4b88b38c" class="">The overall goal of Tesla&#x27;s Product Strategy is to upend the conventional auto industry by providing electric automobiles with cutting-edge technologies. The company&#x27;s emphasis on innovation, vertical integration, premium pricing, and customer experience has contributed to its success in becoming one of the most renowned producers of electric vehicles worldwide.</blockquote><h1 id="d39d1242-bdd5-4512-92cc-7c2d63165e33" class=""><strong>Key Takeaways</strong></h1><p id="6980f605-1c6e-4eb4-a84b-c7d5d987e9fc" class="">As you can see, these businesses have created successful Product Strategies by focusing on providing customers with distinct and innovative user experiences, product that meet specific user needs, and weaving in data and insights to continuously refine their offerings to stay ahead of the competition.</p><p id="b91efd31-d335-413b-aaf6-9b1ed81398f9" class="">You can find several methods for creating a successful Product Strategy by studying these examples and then applying what you’ve learned to your own Product Strategy<strong>.</strong></p><p id="3ec8ef5e-8d2b-4ecb-92e6-966c9baa90d8" class="">
+</p><p id="a951a33d-ee45-4a4c-9256-dddd8203fbe3" class="">
+</p><h2 id="a77778de-a6de-423c-af1a-44634a7ceabb" class=""><strong>Attributes of a Winning Product Strategy</strong></h2><p id="39adaf88-e2a0-42e5-8012-ee4bda372bde" class="">Without a well-defined Product Strategy aligned with your vision and business objectives, even the best teams can fall into chaos. This leads to constantly changing goals based on stakeholder and executive opinions, resulting in products that fail to meet user expectations and corporate objectives.</p><p id="5fd65917-9607-49f1-9b3f-21f85291471b" class="">To avoid this, product managers must establish a strong Product Strategy that keeps teams focused on achieving clear goals and understanding the reasons behind them.</p><h3 id="a6c36f6b-0300-4f04-afdd-6ed428e51afd" class=""><strong>In this video, let us explore 10 attributes of a successful Product Strategy.</strong></h3><figure id="c9a38ce0-c389-410a-8116-224fcb5af734" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2038.png"><img style="width:997px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2038.png"/></a></figure><h1 id="228a7892-0e98-42ac-a3ec-dd79cf130503" class=""><strong>Attributes of a Winning Product Strategy</strong></h1><blockquote id="f420231e-c86a-43ed-8fc2-52aa94db0742" class="">Overall, a strong awareness of consumer wants, market trends, and the competitive landscape should serve as the foundation of any successful Product Strategy. To realize the product vision and goal, it should be founded on data-driven insights and prioritize the most crucial projects. The Product Strategy should be creative and distinctive, adaptive and flexible, and in line with the resources and investment that are available. To achieve alignment and support for the Product Strategy, it is essential to effectively communicate the Product Strategy to all stakeholders.</blockquote><h2 id="05135ee1-3c47-4d85-b1c6-0ee890d83958" class=""><strong>Module Summary</strong></h2><p id="2c219778-635a-497f-9986-439a4bdac9ad" class="">Having a great Product Strategy is important, but without communicating it effectively, you won&#x27;t get far. Effective communication not only helps improve alignment, transparency and trust in the team but is essential for driving stakeholder alignment.</p><p id="8ee26057-728a-4a2a-aea2-396cda25694c" class="">A successful product is the result of a cooperating time driven by a shared strategic goal. So, as a Product Manager, you should be investing your efforts, attention into effectively communicating with your team and stakeholders.</p><p id="ccfca7bf-3fed-417d-9464-78b4d82dfa58" class="">Developing a effective communication plan will allow you to rally everyone around the shared product vision, keep everyone up-to-date on key activities and communicate the progress of the product effectively.</p><p id="2e628b3e-dac5-4c0e-b0fe-591e5261b82c" class="">
+</p><h2 id="78790e73-57d1-48f2-8193-0f77dcc0d75d" class=""><strong>Crafting a Game-changing Product Strategy</strong></h2><h3 id="6a17e2dd-29b8-43eb-8918-318962bc6515" class=""><strong>Great product companies have four things in common: a clear product vision; a Product Strategy; a set of priorities; and a way to measure outcomes. Let us take a look at each of them in more details. Click on the tabs below to expand them further.</strong></h3><figure id="58ef8e82-3a47-4d53-9830-215f79302cc4" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2039.png"><img style="width:981px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2039.png"/></a></figure><figure id="2a159246-2762-48c3-b595-07cc49496d20" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2040.png"><img style="width:976px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2040.png"/></a></figure><figure id="f9c64db2-418c-486b-a2aa-f3d96742d50e" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2041.png"><img style="width:972px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2041.png"/></a></figure><figure id="3c2ffd3d-a3cc-4ca9-8287-11dc7966c97c" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2042.png"><img style="width:972px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2042.png"/></a></figure><h1 id="5db1b6f6-f846-42c7-8c81-5d6de3bddb63" class=""><strong>Product Vision</strong></h1><p id="731e16da-4dfb-435f-bfff-82d313455833" class="">A well-defined product vision is crucial for ensuring that your product remains focused and on track to achieve its desired outcomes. It serves as the foundation for all product decisions and activities.</p><h3 id="18551435-ea1e-41d3-9709-fb32b026bf1a" class=""><strong>Importance of Product Vision</strong></h3><ul id="4bbd5cf4-3df1-446b-b4ff-2dcbd868eda2" class="bulleted-list"><li style="list-style-type:disc">Aligns team members and stakeholders towards a shared understanding of the product’s purpose and goals</li></ul><ul id="17c8c712-59bd-412a-a734-3f9d5455e27d" class="bulleted-list"><li style="list-style-type:disc">Serves as a guiding force that inspires and motivates the team to achieve their objectives</li></ul><ul id="71e84fc7-7e12-480b-8661-f4704544e669" class="bulleted-list"><li style="list-style-type:disc">Is adaptable and flexible, allowing for adjustments based on market changes, customer feedback, and evolving business objectives.</li></ul><h3 id="d249c49d-1342-43d8-a503-da8c08b81a6a" class=""><strong>Developing a Compelling Vision</strong></h3><p id="0a6d8b7c-931c-45d7-a730-fe878e92b3b5" class="">To craft a compelling product vision, start by identifying the core purpose of your product, focusing on the value it brings to customers and the problems it solves. Be specific about your target audience and their needs.</p><h3 id="3099b0c7-3d1c-4f2c-9a0a-0f9f0ee95cbc" class=""><strong>Strategic Differentiation</strong></h3><p id="1c76f7b4-11cb-42b4-86ca-71e757e97c66" class="">Clearly articulate how your product stands out from competitors and what makes it unique. This will help guide your team in making decisions that align with your product&#x27;s strategic advantages.</p><h3 id="861b487f-37e8-4a7d-8f03-56ad74b21898" class=""><strong>Time Horizon</strong></h3><p id="e2bdf87c-3d2f-4e54-a7c7-79830a010bed" class="">Define a realistic time frame for achieving your product vision, taking into account the current market landscape, technology advancements, and potential challenges.</p><h3 id="8d1834bb-7922-4fc1-be11-352ca42f88d2" class=""><strong>Communicating the Vision</strong></h3><p id="3ae159a9-a9c5-4acb-89ae-e6476b7ec2b8" class="">Share your product vision with the entire team, stakeholders, and even customers to ensure alignment, generate excitement, and facilitate collaboration.</p><h3 id="aa4df9e5-78bd-420f-97b0-97d6af3716a5" class=""><strong>Regularly Revisit and Revise</strong></h3><p id="dd6f6c58-ddfb-43d2-934b-0b74402a1a74" class="">As market conditions and customer needs evolve, make sure to regularly revisit and update your product vision to ensure it remains relevant and aligned with your business objectives.</p><h1 id="162f7a0f-ffe7-45f5-b2c3-9352f28d9aa6" class=""><strong>Strategy</strong><strong> →</strong><strong> Tactics</strong></h1><p id="0023c089-f1e7-41e8-a16b-0dccfb80dbb5" class="">As a PM you get really good at the tactical stuff: requirements gathering, research, sprint management. However, as a Product Leader your role is different. You must think strategically, or you will be hampered when developing a long-term product vision and getting executive buy-in on new product ideas. Thinking strategically is about thinking long term. How does everything fit together, how do the individual smaller features ladder up and complement each other to impact the overarching goals / user needs.</p><figure id="959ed6de-b69c-4723-bb92-862fa1ca028e" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/ITUUPLliQyuL7GkI7gQp"><img style="width:700px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/ITUUPLliQyuL7GkI7gQp"/></a></figure><h2 id="3191471c-540b-4840-ac50-2cd5ae80192f" class=""><strong>Components of a Game-changing Product Strategy</strong></h2><p id="2854fb90-cb94-43fd-ae7e-c9862b2a1053" class="">Product Strategy starts with high level mission and zooms in through vision, strategy, roadmap until you get to on the ground execution.</p><figure id="3b861efa-7abd-4ea4-82a2-25434eadcb5d" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2043.png"><img style="width:1153px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2043.png"/></a></figure><figure id="29a38f1f-4f12-4095-a018-ab8ebc374b4d" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2044.png"><img style="width:1108px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2044.png"/></a></figure><p id="05f1daf1-4583-496c-b2ce-52dc4c7d7584" class="">Use the Next and Previous Button in the interactive graphic below to expand on each of the sections.</p><h1 id="397ddcd2-247f-45db-9bba-a142bd2badd9" class=""><strong>Mission</strong></h1><ul id="a353f895-552b-4990-84f0-95c956595a2b" class="bulleted-list"><li style="list-style-type:disc">This is a statement that describes the problem you are setting out to solve, typically including who you are solving it for. This is often set at the company level, but can also be defined for a product or product line.</li></ul><ul id="43ca644c-13c6-471a-91fe-caad96fd9fc3" class="bulleted-list"><li style="list-style-type:disc">A Mission Statement defines the company’s business, its objectives, and its approach to reach those objectives.</li></ul><ul id="97092547-a57e-4ff8-a93c-f41468b4358a" class="bulleted-list"><li style="list-style-type:disc">Most tech companies have a mission statement.</li></ul><p id="2a309e0e-74da-4638-892d-5cbe6300d1ab" class=""><strong>Example</strong>: Google’s mission is “to organize the world’s information and make it universally accessible and useful”.</p><p id="2197672d-c33f-479c-9124-4b97520c08da" class="">The mission, by design, is both vague and broad. The further down you go in the stack, the more concrete and narrow these concepts become.</p><h1 id="ce3e72d9-519f-4dfb-a942-8aa644d3195a" class=""><strong>Vision</strong></h1><ul id="9aba6d21-1504-452b-8da1-27ab72a60a14" class="bulleted-list"><li style="list-style-type:disc">Describes the desired future position of the company. This is the idealized solution that addresses the problem you’ve articulated in your mission.</li></ul><ul id="772c6bb7-c966-4d59-9759-6d4b024320df" class="bulleted-list"><li style="list-style-type:disc">A product vision typically has just enough viability to be relatable, but is still devoid of the details that may hamper your imagination.</li></ul><ul id="fa9ffac8-7fd7-4c22-a3ad-46f81d9a8d43" class="bulleted-list"><li style="list-style-type:disc">Product vision is a rallying point for your product — it paints the picture of how your product will make an impact.</li></ul><ul id="028c44cc-dc38-4407-9b94-1d37c20659f3" class="bulleted-list"><li style="list-style-type:disc">It is the inspiration and future state we want to achieve.</li></ul><h3 id="11222d47-4f0c-4729-86b8-f78d7f7ec3d4" class=""><strong>The vision answers these questions:</strong></h3><ul id="f80d2a31-764c-494a-93d1-a5bbf6bfbeb2" class="bulleted-list"><li style="list-style-type:disc">What is your purpose for creating the product?</li></ul><ul id="b6cc3448-7be5-48a7-bd3a-9f8aad189894" class="bulleted-list"><li style="list-style-type:disc">What positive change should it bring about?</li></ul><h3 id="295498d9-da7b-4009-ac6f-e62aa0d6522d" class=""><strong>A Template to create your Product Vision:</strong></h3><ul id="61f358fd-6c94-49d9-8cb3-2dcf42402148" class="bulleted-list"><li style="list-style-type:disc">For (the target customers)</li></ul><ul id="88604a0d-fdaa-4d0e-ba62-c52e4c20ffd1" class="bulleted-list"><li style="list-style-type:disc">Who (have a certain need),</li></ul><ul id="14f8d355-1033-414e-8b8d-f6a4666d60f8" class="bulleted-list"><li style="list-style-type:disc">Our product is a (product category)</li></ul><ul id="056f89f5-a35c-497e-896e-2969d2be0297" class="bulleted-list"><li style="list-style-type:disc">That provides (compelling reason to buy).</li></ul><ul id="81362de8-3719-44e9-938c-6adf8be229e7" class="bulleted-list"><li style="list-style-type:disc">Unlike (the product alternative),</li></ul><ul id="ba15f82b-486b-4b82-bd5d-cf4f9c91e783" class="bulleted-list"><li style="list-style-type:disc">Our product (has these key differentiators).</li></ul><p id="f34e15eb-2c0d-4b82-8b71-9e568a8f6719" class="">When using the above template, one has to be careful to not just describe the status quo but actually make it something worth striving for.</p><p id="328e8462-b4ed-46ca-b6b5-9356a0ba2e64" class="">A Vision makes the most sense when it describes customer benefits at a high level, without going into details in how they will be achieved, what the differentiation and market position is etc. This makes the vision future-proof so that it can truly serve as long-term guidance.</p><p id="5bfc5b1e-9cd0-4986-b9fa-25ac77884d75" class=""><strong>Example</strong>: Product vision for Yammer, Microsoft’s enterprise social network: “Empower and connect every person across an organization to maximize their impact”.</p><h3 id="f1da05d5-f582-472a-b9e5-18ea4e2b703c" class=""><strong>Some important point to note:</strong></h3><ul id="97ad0bfe-cfa2-4b1b-9e1b-8592ba6efdae" class="bulleted-list"><li style="list-style-type:disc">Elements of Mission and Vision Statements are often combined to provide a statement of the company’s purposes, goals and values. However, sometimes the two terms are used interchangeably.</li></ul><ul id="221a97af-da82-40aa-ae6a-5c625881af31" class="bulleted-list"><li style="list-style-type:disc">What is important about the company mission/vision is that it is relatively stable — it should be broad / ambitious enough that it can remain constant for many years.</li></ul><ul id="45bf8c7d-d64c-408e-9e2e-eb7496fd57ee" class="bulleted-list"><li style="list-style-type:disc">A vision should also be aspirational, or even virtually unattainable, as long as it inspires your team and customers to reach for the new future it describes. Humans are emotional animals — we need inspiring ideas to motivate us. In contrast, a Product Strategy needs to be extremely pragmatic.</li></ul><h1 id="e89ae729-98bb-4aa0-9d1b-812a0c2f7647" class=""><strong>Strategy</strong></h1><ul id="d654d732-746b-41a1-8245-1a35bcc55ab8" class="bulleted-list"><li style="list-style-type:disc">This is a set of principles and decisions — informed by reality and caveated with assumptions — that you commit to ahead of development to ensure the greatest likelihood of success in achieving your vision. Your strategy may evolve with the introduction of new data. If there’s a big shift in strategy while the mission and vision remain constant, it’s called a pivot.</li></ul><ul id="1b867d8a-072c-4f63-8e9a-b18102d15d3c" class="bulleted-list"><li style="list-style-type:disc">In contrast to the vision, which should have a lifetime of many years, a Product Strategy is typically seen to look at a horizon of months to a few years.</li></ul><ul id="a5cd601d-4d04-41d8-afde-729c6b3000ea" class="bulleted-list"><li style="list-style-type:disc">Strategy describes who your customers are, how your product fits into the current market, and how it will achieve business goals.</li></ul><h3 id="f5f8870a-e479-43ec-8945-29c2e52ddb77" class=""><strong>Different levels of strategy</strong></h3><p id="36d7c7f6-f47f-4327-a129-230e045ef317" class="">Having a more high-level strategy can serve better as an umbrella for all work that is going on in the product organization. Functional strategy is a system of achievable goals and visions that work together to align the team around desirable outcomes for both the business and your customers.</p><h1 id="d35da622-4410-420c-bbf9-d9b935fb4e7d" class=""><strong>Roadmap</strong></h1><ul id="efccd557-a1e7-4b56-9e31-550c075fd210" class="bulleted-list"><li style="list-style-type:disc">This is the manifestation of your strategy in concrete steps towards your product vision, inclusive of rough milestones and timelines. This, too, often changes given new data.</li></ul><ul id="488648d7-69d9-4f1e-8f96-13c67971a81f" class="bulleted-list"><li style="list-style-type:disc">The product roadmap describes what products and features will be built to realize the strategy and vision, who is responsible for building those product features, and sometimes an estimate of when those products and features will be released.</li></ul><ul id="559054a4-863b-4e00-aa57-38318b3305e8" class="bulleted-list"><li style="list-style-type:disc">This is the furthest point you are regularly involved in as a Product Leader. You need to empower your PMs and their teams to own the next level - Execution</li></ul><h1 id="7d193a26-f32d-4d02-a44b-b3b8ff362c81" class=""><strong>Execution</strong></h1><p id="29055809-7589-4ad4-ba3f-d251724a15c4" class="">This is the day-to-day activities along the path of the roadmap. This is the PMs on your team do the hard work to build, launch, and iterate, all the while collecting the necessary data to inform any changes in your roadmap and strategy. Your role is to ensure they are empowered and following best practices to increase the likelihood of success</p><blockquote id="ea25dd69-b57c-4d45-9307-b06e7284536f" class="">Strategy within this framework bridges the gap between <strong>what you aspire to be and what you are doing</strong></blockquote><p id="35fe1813-0891-4eb4-b6e9-305c5d907722" class="">
+</p><h2 id="9754a914-e145-4503-bc5c-6208d7c8f1cc" class=""><strong>The Product Strategy Formula</strong></h2><h3 id="55d57a41-6b22-48a1-8d4c-d3fd9955199d" class=""><strong>The Product Strategy formula includes a combination of five main things.</strong></h3><figure id="ebaafe0c-eb96-4cab-bd9c-dcbf843bf757" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/uBsNzjsKRTGDEiqYl2gz"><img src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/uBsNzjsKRTGDEiqYl2gz"/></a></figure><h3 id="c1ae7245-b09b-4dec-9797-03f95b0556c4" class=""><strong>Use the buttons in the interactive graphic below to dive into further details of each of the steps.</strong></h3><figure id="334d66ef-a9b7-4d8b-822f-da1c9ad2d88b" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2045.png"><img style="width:1022px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2045.png"/></a></figure><figure id="e9fb458d-af93-456a-9a0d-073ebefcc67b" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2046.png"><img style="width:985px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2046.png"/></a></figure><figure id="0d38f882-acde-47d2-96bc-a002c13c88cc" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2047.png"><img style="width:983px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2047.png"/></a></figure><figure id="2446d6d8-f948-460a-982c-99d95ce538be" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2048.png"><img style="width:982px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2048.png"/></a></figure><figure id="745face6-2504-4fea-a768-01594396515a" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2049.png"><img style="width:987px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2049.png"/></a></figure><figure id="64a3261e-6502-4b7d-9d52-a97f11c64544" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2050.png"><img style="width:945px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2050.png"/></a></figure><h3 id="b0b66fd2-3615-4b7a-bcf4-e8ec64cebe9f" class="">A product mission should be Vague and broad</h3><h3 id="d5a411b2-7596-4180-a1aa-d0b5a4998938" class="">A product roadmap is manifestation of the strategy in concrete steps towards product vision</h3><p id="a1fbe527-fd12-4217-adca-29e797061c7f" class="">
+</p><p id="18649f10-2d42-47ab-9b60-a8d6f9254558" class="">
+</p><h2 id="91a0243c-ee01-4c06-82d4-066b18514aa9" class=""><strong>Example: The Product Strategy Formula Applied to Zoom</strong></h2><h3 id="b4ef35a8-d948-4f28-be7a-d238ace835fb" class=""><strong>Let us see how the Product Strategy Formula applies to Zoom. Use the buttons in the interactive graphic below to dive into further details of each of the steps.</strong></h3><figure id="f9d15c17-c0a7-4ea9-9b00-eb93314e1989" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2051.png"><img style="width:1103px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2051.png"/></a></figure><figure id="f94e6ef8-0577-42d8-94ab-6dfff492827d" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2052.png"><img style="width:1001px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2052.png"/></a></figure><figure id="f9f34f0c-6493-4e41-a65f-7973b55ab39e" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2053.png"><img style="width:1022px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2053.png"/></a></figure><figure id="4dda85c8-322f-4568-949f-1e16292003ae" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2054.png"><img style="width:1008px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2054.png"/></a></figure><figure id="8bd9c18e-ec5c-42c7-acdf-fac47b95442c" class="image"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2055.png"><img style="width:1061px" src="Product%20Strategy%20661395403bb3489cbdba733e85687470/Untitled%2055.png"/></a></figure><h1 id="b2c637aa-6623-4576-8026-1b4071234638" class=""><strong>Differentiators for Zoom</strong></h1><ul id="df2ed4e1-5e11-4f63-9a33-3bf9c1a1ef97" class="bulleted-list"><li style="list-style-type:disc"><strong>For</strong> remote teams, educators, and individuals</li></ul><ul id="877be990-133a-4ca5-bf9d-c9e778fd4ccb" class="bulleted-list"><li style="list-style-type:disc"><strong>Who need </strong>efficient, reliable, and easy-to-use virtual communication tools</li></ul><ul id="964e0760-a793-4c07-9210-a2f8f5e58e65" class="bulleted-list"><li style="list-style-type:disc"><strong>Our product is</strong> a versatile video conferencing platform</li></ul><ul id="e8e5253c-985c-4093-a9f4-d465358b4b7e" class="bulleted-list"><li style="list-style-type:disc"><strong>That provides </strong>high-quality video and audio, screen sharing, and collaboration features</li></ul><ul id="f678c447-24f3-4eb9-9a6d-52755ffc441e" class="bulleted-list"><li style="list-style-type:disc"><strong>Unlike</strong> traditional phone conferencing or other video conferencing solutions</li></ul><ul id="1080f729-a279-4c50-bc2e-e179e0a3e0e0" class="bulleted-list"><li style="list-style-type:disc"><strong>Our product is</strong> accessible across devices, secure, and scalable, allowing users to connect and collaborate seamlessly, regardless of location.</li></ul><h1 id="34482c16-5c90-4d19-89ee-2a8e86e31b28" class=""><strong>Product Insights for Zoom</strong></h1><ul id="9a950939-4587-4efa-a004-a14800f10e8d" class="bulleted-list"><li style="list-style-type:disc"><strong>Target Audience:</strong> The product focuses on remote teams, educators, and individuals who need efficient virtual communication tools.</li></ul><ul id="83f34a40-efab-4c0a-9665-87b55cfe05c7" class="bulleted-list"><li style="list-style-type:disc"><strong>Competitors:</strong> Zoom&#x27;s key competitors in the market, such as Microsoft Teams, Google Meet, BlueJeans, and WebEx.</li></ul><ul id="5383e841-45e3-4513-babe-310d974cdad9" class="bulleted-list"><li style="list-style-type:disc"><strong>Market Insight</strong>: The video conferencing market is currently growing with a CAGR of 9.2% and has an expected market value of $16.4 billion by 2023. Increasing demand for remote work and virtual communication solutions is driving this growth.</li></ul><ul id="1f072873-e056-4377-bc03-f1923817409e" class="bulleted-list"><li style="list-style-type:disc"><strong>Product Type and Key Benefits</strong>: Zoom is a versatile video conferencing platform offering high-quality video and audio, screen sharing, and collaboration features.</li></ul><ul id="8fe2a99a-9b37-428d-a31f-8ca3bad6cbba" class="bulleted-list"><li style="list-style-type:disc"><strong>Unique Differentiators</strong>: Zoom&#x27;s unique differentiators include accessibility across devices, security, and scalability, which enable users to connect and collaborate seamlessly, regardless of location.</li></ul><ul id="6165c1a8-4ab9-40a6-ab0b-446582699c2b" class="bulleted-list"><li style="list-style-type:disc"><strong>Customer Insights</strong>: Customers of Zoom prefer a reliable, secure, and seamless user experience.</li></ul><h1 id="af1b2922-f633-4951-a5c5-0aa046d2c9e1" class=""><strong>Challenges for Zoom</strong></h1><p id="602f215c-5ae4-4937-ada0-c015f8e9e4b7" class="">Addressing challenges is crucial for creating a product that meets user needs and thrives in a competitive market.</p><ul id="5f855e75-f6cb-422d-829a-ff8acadee7a6" class="bulleted-list"><li style="list-style-type:disc"><strong>Technical Challenges</strong>: Zoom is a secure, scalable platform that can handle a large volume of concurrent users. There is continuous efforts to improve the platform&#x27;s stability and performance through continuous development and optimization.</li></ul><ul id="0f53206d-ab2a-42bb-af96-0eda462d09a2" class="bulleted-list"><li style="list-style-type:disc"><strong>Customer Pain Points</strong>: Zoom is a user-friendly platform with a low learning curve. Zoom offers onboarding tutorials, and responsive customer support to make the platform intuitive and easy to use.</li></ul><ul id="a1088168-6a9c-4168-b3d1-e2b063f6844a" class="bulleted-list"><li style="list-style-type:disc"><strong>Go-to-Market (GTM) Risks</strong>: There is fierce competition in the video conferencing market. Zoom uses marketing and growth strategies such as targeted advertising, pricing incentives, and continuous feature improvements to make the platform stand out, attract, and retain customers.</li></ul><ul id="6b01e88f-c2a1-4fd4-9d3a-998e26a88732" class="bulleted-list"><li style="list-style-type:disc"><strong>Legal Challenges</strong>: It is important to be compliant with data privacy and security regulations and standards, such as HIPAA and GDPR. Zoom ensures the platform meets these requirements, such as working with legal and regulatory consultants, implementing robust security measures, and staying up-to-date on changing regulations.</li></ul><h1 id="c6d263ee-84af-4f89-8ac8-c9a2bce68915" class=""><strong>Approaches for Zoom</strong></h1><p id="b90ac12f-b51e-4832-ad07-22bb68c91955" class="">Zoom has to employ a multi-prong approach to addressing the challenges faced in developing and launching a successful video conferencing product. The approach is designed to tackle technical, customer, go-to-market, and legal challenges.</p><ul id="ea016240-cdd2-4222-ab90-b851a0998ffd" class="bulleted-list"><li style="list-style-type:disc"><strong>Approach</strong>: Zoom has to the focus on providing a reliable, secure platform with a seamless user experience and features that meet customer needs. Zoom also has to make investment in infrastructure and technology to overcome technical challenges and ensure scalability. Zoom offers an intuitive user interface, extensive support, and continuous product improvement based on customer feedback to address customer pain points.</li></ul><ul id="1dfd8c39-c36e-474a-82ca-9581b923b589" class="bulleted-list"><li style="list-style-type:disc"><strong>Overcoming Challenges</strong>: It is importance to invest in infrastructure and technology for platform scalability and handling a large volume of concurrent users. Zoom makes the efforts to address customer pain points through intuitive UX, extensive support, and training materials.</li></ul><ul id="b2994e14-c017-489a-96d5-0cd675795220" class="bulleted-list"><li style="list-style-type:disc"><strong>Do&#x27;s and Don&#x27;ts: </strong>Avoid addressing legal challenges at the last minute. It is very important to ensure compliance with data privacy and security regulations and standards. There is a need to offer robust security features to protect customer data.</li></ul><h1 id="c2e48e81-0d9b-4eec-8179-503000a9492d" class=""><strong>Accountability for Zoom</strong></h1><p id="f4aed315-f831-42c5-a4e6-c4ee70e4d6c3" class="">It is important to set clear metrics to measure the success and progress of the product.</p><ul id="b08b555a-a419-4678-ae66-b1a5837e4364" class="bulleted-list"><li style="list-style-type:disc"><strong>Accountability Metric</strong>: Some key metrics that are used to gauge the success of the product are user adoption, customer satisfaction, and revenue growth. There is need for continuous monitoring and analysis of these metrics to make informed decisions and drive improvements.</li></ul><ul id="5261cc7e-07be-402f-b866-96faf072ae57" class="bulleted-list"><li style="list-style-type:disc"><strong>Goals</strong>: There are specific goals for the product, such as achieving a user base of 50 million monthly active users and a revenue growth rate of 30% in the next year. These goals serve as targets to strive for, and they help align the team&#x27;s efforts and keep everyone focused on the desired outcomes.</li></ul><p id="acf759f5-9521-403b-a0ec-f7764bb128ce" class="">
+</p><h2 id="1e9c6c30-4714-4f08-b25a-08d7ef4a1395" class=""><strong>Module Summary</strong></h2><p id="81387f2c-5705-4c94-a490-e1d97ca1a81a" class="">Crafting a game-changing Product Strategy requires that it is derived from a clear product vision, prioritized, and then there are ways to measure the outcomes. It starts with your mission - the problem you are setting out to solve. Next follows the vision - the desired future position of the company. Next, the strategy - knowing your customers, your product, and how your product can help fulfil the business goals. Then the final two steps - a concrete roadmap of getting towards the vision and a day-to-day execution plan along the path of the roadmap.</p><p id="a2ce526c-d511-476d-b31a-f0e22d3d9e3c" class="">To craft game-changing Product Strategies, you will have to grow and balance your skills as a Product Manager and a Product Leader. As a product manager, one of your most important skills is getting better at tactical stuff such as requirement gathering, research, and spring management. However, as a product leader, you must think strategically to set long-term product vision.<em> </em>You can do this by always being open to discovery, prioritizing, communicating and thinking strategically.</p><figure id="0db63aef-7e50-408c-a20d-ac3d114f443c"><div class="source"><a href="https://docs.google.com/presentation/d/1KM6yMgwC3mDujFDr5KwJR0rgK3N6pd_U3a6oePXgaxU/edit?usp=sharing">https://docs.google.com/presentation/d/1KM6yMgwC3mDujFDr5KwJR0rgK3N6pd_U3a6oePXgaxU/edit?usp=sharing</a></div></figure><p id="5256c02b-1e07-4212-84d0-160c15f63947" class="">
+</p><figure id="d528e482-324b-48ca-b55d-affcde5d8f26" class="link-to-page"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Overview%20of%20Product%20Strategy%20d528e482324b48cab55daffcde5d8f26.html">Overview of Product Strategy</a></figure><figure id="1b95c8de-8dd6-4a69-84c5-bacd35bc9a15" class="link-to-page"><a href="Product%20Strategy%20661395403bb3489cbdba733e85687470/Certificate%201b95c8de8dd64a6984c5bacd35bc9a15.html">Certificate</a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

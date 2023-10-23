@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Overview of Product Strategy</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d528e482-324b-48ca-b55d-affcde5d8f26" class="page sans"><header><h1 class="page-title"><strong><strong>Overview of Product Strategy</strong></strong></h1><p class="page-description"></p></header><div class="page-body"><p id="a0ea16ea-b508-411e-9c6a-aeecd2e77b43" class="">
+</p><h1 id="85d7b719-004b-4bc1-be55-2ed3668fe093" class=""><strong>Overview of Product Strategy</strong></h1><p id="202a989c-4807-4147-bb1a-3852c8a07143" class="">A Product Strategy is a broad plan that outlines a company&#x27;s goals and methods for achieving those goals with its product. It is the process of defining what you want to achieve and how you plan to get there. It outlines your strategic vision for a product offering by stating where the product is going, how it will get there, and why it will succeed.</p><figure id="9c515a9c-8584-45e7-b865-73b8d16ae75c" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/3M3Ng66TT2DrXjQeONgB"><img style="width:635px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/3M3Ng66TT2DrXjQeONgB"/></a></figure><p id="6ddc6122-0cb0-4b61-8038-fdc8edc2581c" class="">Product Strategy is deeply interconnected with the Product Vision and the Company Vision/Mission/Goals.</p><figure id="d236e6b4-c387-4c17-aeb4-3188891a6366" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/lzV1azTGmmmNjklIK8gC"><img style="width:700px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/lzV1azTGmmmNjklIK8gC"/></a></figure><h3 id="e688d70d-7db6-48f5-8ce1-c5e8ae258f2f" class=""><strong>A well-defined Product Strategy includes several key elements: Product Vision, Insights, Challenges, Approaches and Accountability.</strong></h3><figure id="f7fdb2c0-00e8-49f2-afa1-ba20c4c5bcce" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/JfC7Q1V8SIqUttSWUldD"><img style="width:527px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/JfC7Q1V8SIqUttSWUldD"/></a></figure><h1 id="e2369d99-62e6-4c12-822f-31a5e1963740" class=""><strong>Importance of Product Strategy</strong></h1><p id="29b03754-d08a-4085-95f0-c5bb8d939f4a" class="">Product Strategy is essential for the success of any product. It provides a roadmap for product development and marketing, aligns teams around common goals, and helps companies differentiate themselves in the market. Some key reasons why having a Product Strategy is important are:</p><ul id="7e8eaf28-4354-4776-bd16-7b4c4dc086dd" class="bulleted-list"><li style="list-style-type:disc">Provides direction and focus</li></ul><ul id="645b3c90-f939-4e57-86d5-0466a5e81773" class="bulleted-list"><li style="list-style-type:disc">Aligns business strategy</li></ul><ul id="91a43a99-2054-4075-a83d-f041b9501f0b" class="bulleted-list"><li style="list-style-type:disc">Meets customer needs</li></ul><ul id="7c8b3ff6-82a5-4e28-b3b9-46bf487ffc4b" class="bulleted-list"><li style="list-style-type:disc">Differentiates from competitors</li></ul><ul id="424f5ed2-e7db-4f99-8782-f14ff956002b" class="bulleted-list"><li style="list-style-type:disc">Maximizes resources</li></ul><ul id="35096654-0b2d-4847-a310-b3c9fba57c47" class="bulleted-list"><li style="list-style-type:disc">Provides a roadmap for success</li></ul><h1 id="ec88395e-49db-4820-a9fc-817cabf947be" class=""><strong>Aligning Your Strategies</strong></h1><p id="34661573-6832-4a35-8d7a-86367ae29409" class=""><strong>Key aspects to make sure you are on the right path are:</strong></p><ul id="4eb93a3b-a584-446e-90a1-aed1e0c7f10e" class="bulleted-list"><li style="list-style-type:disc">Good communication</li></ul><ul id="8a0484db-6aee-4778-9e63-d44e44d63599" class="bulleted-list"><li style="list-style-type:disc">Incorporate long-term goals into daily operations</li></ul><ul id="2bf2799c-a857-4526-a8f2-acb5d90f0b92" class="bulleted-list"><li style="list-style-type:disc">Determine applicable metrics</li></ul><ul id="077c7792-3cd4-44c9-a86a-267901762d05" class="bulleted-list"><li style="list-style-type:disc">Line up your resources with your plan</li></ul><ul id="bc4745ad-836a-466a-9779-d50733ca24e7" class="bulleted-list"><li style="list-style-type:disc">Outline ownership</li></ul><h1 id="0a4d5033-9030-4e7f-9c37-2cc11ace46b2" class=""><strong>Crafting a Product Strategy in 6 Steps</strong></h1><p id="802ff4fe-d1c3-4059-bb78-44a0a9b3bc53" class="">Forming a Product Strategy requires a deep understanding of the market, customer needs, and business objectives. It consists of 6 major steps:</p><ol type="1" id="c0722bbc-1dae-4bb3-8073-dfb1918eceec" class="numbered-list" start="1"><li>Market analysis</li></ol><ol type="1" id="c5bcf459-716f-4326-89ec-ac168ffe6b6a" class="numbered-list" start="2"><li>Customer analytics</li></ol><ol type="1" id="67d85c40-8c12-4c90-b2ef-71c0fb97e73e" class="numbered-list" start="3"><li>Product vision and mission</li></ol><ol type="1" id="76aa187a-6ebd-488c-a456-09c312e9603e" class="numbered-list" start="4"><li>OKRs</li></ol><ol type="1" id="584242d1-2d3c-4bd4-8af8-7c522c2c7758" class="numbered-list" start="5"><li>Roadmap</li></ol><ol type="1" id="1b578a7a-e395-4cd5-b582-1ef9353dcffa" class="numbered-list" start="6"><li>Prioritization</li></ol><h1 id="af9dca8b-96bc-402b-94bb-66ac9758f9bc" class=""><strong>Market Analysis</strong></h1><p id="2752b99c-5ec4-481e-96bb-e3d1c6cd66d2" class="">A market analysis is an in-depth evaluation of a market within a particular industry. To carry out this analysis you will need to research the market dynamics, including volume and value, possible client segments, purchasing trends, competition, and other crucial elements.</p><p id="ab03b550-56b8-456c-a65a-f43e9389d671" class="">Market analysis benefits include improved decision making, targeted product development, higher competitive advantage, improved communication and increase in revenue.</p><h3 id="f2b2e2e1-5890-4d8a-9b19-e8d4f01da911" class=""><strong>Steps in Market Analysis</strong></h3><ol type="1" id="a3b11452-81ba-4778-9299-929eacfb9227" class="numbered-list" start="1"><li>Identify target markets</li></ol><ol type="1" id="e380dd8d-5447-4448-b654-2ff57996b9e2" class="numbered-list" start="2"><li>Identify customers needs</li></ol><ol type="1" id="6bffe20c-4856-4c16-a2dc-f437b04762c3" class="numbered-list" start="3"><li>Segment the market</li></ol><ol type="1" id="6dcb4b33-f98f-47e4-9c41-ecfc07915bdc" class="numbered-list" start="4"><li>Gather Data</li></ol><ol type="1" id="1d7b153d-b236-4458-b219-eb458d2c85e2" class="numbered-list" start="5"><li>Analyze the data</li></ol><ol type="1" id="eb6c378d-d528-465d-beb2-6cbb7ec3df74" class="numbered-list" start="6"><li>Put your analysis to work</li></ol><h1 id="b3c23108-d0ec-43a8-8dc4-766890aec0c3" class=""><strong>Customer Analytics</strong></h1><p id="dd48f8b4-45f2-4389-8e76-f5440db62c55" class="">Customer analytics is a careful examination of the data a business gathers on its customers. Teams can use customer analytics to identify, attract, and retain customers to drive growth. This process involves identifying the target customer segments and understanding their needs, behaviors, and preferences. The purpose of customer analytics is to gain a deep understanding of the customer and develop a product that meets their needs and solves their problems.</p><p id="b7c147e9-8b43-48d4-ae95-9dca03b8294e" class="">Customer analytics is important because it provides a deep understanding of the target customer and their needs. By understanding customer needs and pain points, the product can be designed and developed to better meet those needs. This can help improve customer satisfaction, loyalty, and retention, leading to increased revenue and profitability over time.</p><h3 id="6c7033e2-1ce3-4752-999c-5a5a693490a6" class=""><strong>Steps in Customer Analytics</strong></h3><ol type="1" id="3c09eaff-0997-431a-86c7-a334b90458ac" class="numbered-list" start="1"><li>Identify target customer segments</li></ol><ol type="1" id="c1971d8c-143f-4aec-ac56-63e62950197b" class="numbered-list" start="2"><li>Segment the customer base</li></ol><ol type="1" id="ea1980c9-0a6e-44bc-b664-e0d20aebfee2" class="numbered-list" start="3"><li>Gather data</li></ol><ol type="1" id="aecc575a-169c-49b0-9e5c-e2accb9144be" class="numbered-list" start="4"><li>Analyze the data</li></ol><ol type="1" id="bcaf2008-153d-4315-a565-9162dfeb222c" class="numbered-list" start="5"><li>Develop customer personas</li></ol><h1 id="504da30b-17d4-4105-89e4-2412af2e0267" class=""><strong>Product Vision &amp; Mission</strong></h1><p id="c41aa3c1-15d2-4eb1-8867-58bc2d6f383b" class="">They provide a high-level view of the purpose and goals of the product, as well as the desired outcomes and impact. The product vision and mission should be aligned with the overall business strategy and should guide all decision-making related to the product.</p><h3 id="7e857d8f-b479-498e-baab-2c9ef58be28c" class=""><strong>Product vision and mission benefits include better alignment, increased focus, improved decision making, better communication and higher inspiration.</strong></h3><h3 id="a8f7ac44-914f-423a-9903-76da4cbde170" class=""><strong>Steps in Creating the Product Vision &amp; Mission</strong></h3><ol type="1" id="06e62bf4-ede9-48de-b5b7-0ff1225abbbb" class="numbered-list" start="1"><li>Identify the product&#x27;s unique value proposition</li></ol><ol type="1" id="fc0c2520-8d2d-4d69-bfca-1d86a6878d31" class="numbered-list" start="2"><li>Define the product&#x27;s desired outcomes</li></ol><ol type="1" id="12b4ad36-36f3-4206-b7e4-0a302325c608" class="numbered-list" start="3"><li>Write the product vision</li></ol><ol type="1" id="338571c9-331b-4643-8144-214e35010c69" class="numbered-list" start="4"><li>Write the product mission</li></ol><h1 id="e5f997f5-410d-41ec-9bc7-89e8a6496877" class=""><strong>OKRs</strong></h1><p id="4a9e8cb7-8a5d-4d9f-aa1f-3ed4387a21cb" class="">OKR stands for ‘Objectives and Key Results,’ and this is a goal-setting formula that ensures everyone is working on tasks aligned with the greater strategy.</p><p id="791e50cd-1608-4558-b789-e2dba8e9c52a" class="">OKRs Benefits include increased focus, alignment, accountability, and flexibility.</p><p id="bebd1296-2fbf-4df5-8b13-9e496ba6ad86" class=""><strong>Steps in Creating OKRs</strong></p><ol type="1" id="322f0f74-2e94-4b0d-a768-1168f38fd6ce" class="numbered-list" start="1"><li>Define your product vision</li></ol><ol type="1" id="9e5bfc58-741b-48d8-9daf-4b4e4ae07296" class="numbered-list" start="2"><li>Identify key objectives</li></ol><ol type="1" id="4efdd62c-1c21-4ac1-b8e1-c36d30cd60a5" class="numbered-list" start="3"><li>Identify key results</li></ol><ol type="1" id="94c65ad4-7734-46d2-b300-f50e4bf6bc17" class="numbered-list" start="4"><li>Set targets</li></ol><ol type="1" id="ec28a04f-8acc-40c5-b5ec-68fa2e44e07c" class="numbered-list" start="5"><li>Assign ownership</li></ol><ol type="1" id="d6af855c-973b-4694-ac28-8b08eb8ca041" class="numbered-list" start="6"><li>Review and adjust</li></ol><h1 id="c5d00ec8-a508-4f55-bf96-ddb04a29b97b" class=""><strong>Product Roadmap</strong></h1><p id="f2db70fc-5bbc-4e83-8624-45a9f529dd47" class="">Product Roadmap is a high-level plan that outlines the major initiatives and milestones required to achieve your product vision and mission. A roadmap provides a strategic overview of the product&#x27;s development and helps prioritize resources and investment.</p><p id="17a08dc7-fcee-401c-95b5-a6d985ebcfce" class="">There are several benefits of product roadmaps including increased alignment and focus, improved communication, resource allocation and better risk management.</p><h3 id="3e93d0e9-3e9a-425e-a437-1632568c69d2" class=""><strong>Steps for Crafting your Product Roadmap</strong></h3><ol type="1" id="1c9cdd1e-a9e1-490b-b110-3624da40a903" class="numbered-list" start="1"><li>Define the product vision and mission</li></ol><ol type="1" id="1c18a39d-2ecd-4929-93ed-4895425f3f13" class="numbered-list" start="2"><li>Identify the major initiatives</li></ol><ol type="1" id="d5b990b0-b4b0-4824-a421-5fac435d8558" class="numbered-list" start="3"><li>Prioritize the initiatives</li></ol><ol type="1" id="4ac68841-6dd2-42a9-9cef-bda80b83b508" class="numbered-list" start="4"><li>Define milestones</li></ol><ol type="1" id="91c6fdb5-90bc-4bd9-be7c-a41974a422e7" class="numbered-list" start="5"><li>Create the roadmap</li></ol><h1 id="40993efb-0210-4688-9d75-6ca7eeb79ffe" class=""><strong>Prioritization</strong></h1><p id="6528e95b-6fa2-4fe8-bc0b-692ee3a079c5" class="">It involves identifying the most important initiatives and milestones required to achieve the product vision and mission and prioritizing them based on their strategic importance, resource requirements, and potential impact.</p><p id="6d0495ef-c268-4177-946f-acb0545a2f12" class="">Prioritization benefits include better resource allocation and strategic alignment, improved risk management, higher customer satisfaction and competitive advantage.</p><h3 id="ea7c5921-6e59-45c8-81d1-9b2654e69410" class=""><strong>Steps for effective Prioritization</strong></h3><ol type="1" id="08ec471c-ee48-4035-b574-17c71f4946a0" class="numbered-list" start="1"><li>Define the criteria</li></ol><ol type="1" id="7e9059fc-e2a1-4d79-b94b-affe5a181890" class="numbered-list" start="2"><li>Evaluate the initiatives</li></ol><ol type="1" id="d16ddcaf-c515-4d4c-9ed2-ea5cc6afdaad" class="numbered-list" start="3"><li>Prioritize the initiatives</li></ol><ol type="1" id="3a7251f9-3d62-48dd-aa29-855157ea841f" class="numbered-list" start="4"><li>Develop a plan</li></ol><ol type="1" id="b7e9616c-0d14-4447-b22a-62d32f050ed3" class="numbered-list" start="5"><li>Review and adjust</li></ol><h1 id="3f9db2f5-6e91-4a53-a4fa-a270e41e320c" class=""><strong>Communicating Product Strategy to Drive Stakeholder Alignment</strong></h1><p id="7b8f26c5-67ad-471f-8473-7f19fefef9f2" class="">Communicating the Product Strategy ensures that everyone is working towards the same goals and objectives, aligned with the product vision and mission.</p><h3 id="72f024e9-41c3-4653-9f6b-9cae701c84fe" class=""><strong>Steps in Communicating Product Strategy Effectively</strong></h3><ol type="1" id="afb9e122-4e59-4cdf-aef2-71d30bf904f6" class="numbered-list" start="1"><li>Clearly define the product vision and mission:</li></ol><ol type="1" id="7efbc9ca-1d78-4750-9546-a999ecad6f5f" class="numbered-list" start="2"><li>Identify key initiatives and milestones:</li></ol><ol type="1" id="ac3805f2-0f1c-46ed-a921-2ea863953926" class="numbered-list" start="3"><li>Develop a communication plan</li></ol><ol type="1" id="0baa0101-1492-4845-8ed2-dd695689aef2" class="numbered-list" start="4"><li>Engage in a two-way communication</li></ol><ol type="1" id="a7f4df64-821d-4221-af90-d2f2c0d4e4db" class="numbered-list" start="5"><li>Use data and metrics</li></ol><ol type="1" id="54910dcd-2352-4739-9f48-b017c6c5fe40" class="numbered-list" start="6"><li>Tailor communication to different stakeholders</li></ol><h1 id="81f70c57-bbfb-457f-83e3-5e5b5837537d" class=""><strong>Developing a Communication Plan</strong></h1><p id="654c076a-8423-47d9-9e53-116830648ddd" class="">Developing a communication plan is essential for ensuring that the Product Strategy is effectively communicated to stakeholders and that everyone is aligned around the product vision and mission.</p><h3 id="40762423-967b-4240-8e16-be248b66c63f" class=""><strong>Steps to Consider when Developing a Communication Plan</strong></h3><ol type="1" id="9d9aa3ca-b696-4693-8267-bd3acb871a91" class="numbered-list" start="1"><li>Identify the stakeholders</li></ol><ol type="1" id="67496760-2676-450d-bf48-3fd451135a72" class="numbered-list" start="2"><li>Determine the communication channels</li></ol><ol type="1" id="e617388a-3834-4728-9ee4-e8bfc5139c5d" class="numbered-list" start="3"><li>Develop the messaging</li></ol><ol type="1" id="33c25592-4541-4b0f-8e73-f8777a8857f2" class="numbered-list" start="4"><li>Schedule the communication</li></ol><h1 id="b8119cb9-37aa-44a2-9a8c-2c627255b98e" class=""><strong>Examples of Successful Product Strategies</strong></h1><ul id="8be473d6-1895-4278-b1d8-660e00215f60" class="bulleted-list"><li style="list-style-type:disc"><strong>Apple</strong>: Apple&#x27;s Product Strategy is focused on delivering a unique and innovative user experience. This involves developing products that are intuitive, easy to use, visually appealing.</li></ul><ul id="06e63d65-89ad-4179-b6f5-95dc5a283dad" class="bulleted-list"><li style="list-style-type:disc"><strong>Amazon: </strong>Amazon&#x27;s Product Strategy is based on providing a wide range of products and services to customers at competitive prices, which involves leveraging customer data and analytics to identify customer preferences and tailoring products and services to meet those needs.</li></ul><ul id="a3d77ffd-1cb6-436d-bc36-a278849f9d89" class="bulleted-list"><li style="list-style-type:disc"><strong>Tesla</strong>: Tesla&#x27;s Product Strategy is based on developing innovative and sustainable transportation solutions, which implies leveraging advanced technology to create products that are environmentally friendly and technologically advanced</li></ul><h1 id="47d79188-aefa-49c8-b52f-ab88ec795f4d" class=""><strong>Attributes of a Winning Product Strategy</strong></h1><p id="788d4114-276c-44a7-aff8-b4349a1bb536" class="">Product managers must establish a strong Product Strategy that keeps teams focused on achieving clear goals and understanding the reasons behind them. This avoids failure and chaos.</p><h3 id="03024f26-1bd0-45d2-86c9-a07e93f82b7d" class=""><strong>10 Attributes of a Successful Product Strategy</strong></h3><ol type="1" id="3101e25e-955e-41a2-80f6-1ce503cc44d1" class="numbered-list" start="1"><li>Clear product vision and mission</li></ol><ol type="1" id="6db454e8-84cf-4d53-8d3f-a20597917560" class="numbered-list" start="2"><li>Customer-centric</li></ol><ol type="1" id="3c4bcf6e-f044-441e-8639-966822f3b5c6" class="numbered-list" start="3"><li>Market-oriented</li></ol><ol type="1" id="1e48300d-4910-4592-bfd0-8202960d3568" class="numbered-list" start="4"><li>Prioritized initiatives</li></ol><ol type="1" id="01e24a75-95d8-46a9-bbbb-256f88cdf87a" class="numbered-list" start="5"><li>Measurable goals and objectives</li></ol><ol type="1" id="79e6520d-64c6-4745-a547-159e542d6a50" class="numbered-list" start="6"><li>Data-driven</li></ol><ol type="1" id="da9ae778-578b-4e7c-936d-444f8089035a" class="numbered-list" start="7"><li>Innovative and unique</li></ol><ol type="1" id="4b749d5d-2d94-4c02-bbbb-573b498eea33" class="numbered-list" start="8"><li>Flexible and adaptable</li></ol><ol type="1" id="f47483be-e1a1-400a-b609-05977a302b4d" class="numbered-list" start="9"><li>Aligned with resources and investment</li></ol><ol type="1" id="be04cd67-28bd-4c16-a582-9186a031593f" class="numbered-list" start="10"><li>Communicated effectively</li></ol><h1 id="6355158c-ae6b-46fd-b438-223d2dbbd3be" class=""><strong>Crafting an Advanced Product Strategy</strong></h1><h3 id="db1564f1-f8c7-4c53-a35e-24a1be6a9042" class=""><strong>Great product companies have four things in common: a clear Product Vision; a Product Strategy; a Set of Priorities; and a Way to Measure Outcomes.</strong></h3><h1 id="25e09198-496f-4182-8ee3-de45c2c7593a" class=""></h1><figure id="b7a4ff5d-c7ea-4619-877e-8dcdf1bf1c0d" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/BntRr9vLQ8m1kikciDxy"><img style="width:700px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/BntRr9vLQ8m1kikciDxy"/></a></figure><h3 id="8e049a7d-6688-4456-afa5-c3e9d574402a" class=""><strong>Levels in Creating an Advanced Product Strategy</strong></h3><p id="182fb8f7-79bc-4d05-bedd-4e649183a9f6" class="">Product strategy starts with high level mission and zooms in through vision, strategy, roadmap until you get to on the ground execution.</p><figure id="5dce000d-8b19-4fa4-b45b-6b076fe0d55e" class="image"><a href="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/mkiph8ORRkCb6S98qSbF"><img style="width:621px" src="https://cdn.fs.teachablecdn.com/ADNupMnWyR7kCWRvm76Laz/https://cdn.filestackcontent.com/mkiph8ORRkCb6S98qSbF"/></a></figure><h1 id="eac907c2-1f33-487d-aebc-64f8402759ac" class=""><strong>Lesson Summary</strong></h1><p id="1790d9f7-812b-4e33-8731-1cab5ba0405a" class="">Product Strategy is an important element of a successful product and is the process of defining goals and methods for achieving them. It includes several key elements like Product Vision, Insights, Challenges, Approaches and Accountability. It provides direction and focus, aligns business strategy, meets customer needs, helps differentiate from competitors and maximizes resources. Creating an effective Product Strategy requires a deep understanding of the market, customer needs, and business objectives which is divided into 6 major steps:</p><ul id="b2b0f4d3-60c5-4d4b-a4b5-8c78832833b5" class="bulleted-list"><li style="list-style-type:disc">Market analysis</li></ul><ul id="54128ea0-f1b8-4c24-bc29-032b2647971a" class="bulleted-list"><li style="list-style-type:disc">Customer analytics</li></ul><ul id="3af7c0d3-95ac-463b-b54a-677bac99aa1e" class="bulleted-list"><li style="list-style-type:disc">Product vision and mission</li></ul><ul id="b4aa4e59-81d6-40e7-b5e5-196446d39085" class="bulleted-list"><li style="list-style-type:disc">Objectives and key results (OKRs)</li></ul><ul id="6c27cb5b-8c83-457c-a772-3583f549f9c1" class="bulleted-list"><li style="list-style-type:disc">Product roadmap</li></ul><ul id="15cbd1a5-5ed1-4be0-8461-eeec323c0791" class="bulleted-list"><li style="list-style-type:disc">Prioritization</li></ul><p id="fe5658c2-c664-4eff-bd85-f6f34fd26b25" class="">To ensure success, teams need to incorporate long-term goals into daily operations, determine applicable metrics, line up resources with plans, and outline ownership. Finally, an effective communication plan should be developed and tailored to different stakeholders. The attributes of a winning Product Strategy include a clear vision &amp; mission, customer centricity, market orientation, prioritized initiatives, measurable goals, data-driven investigation, innovation and uniqueness, flexibility &amp; adaptability, resources and investment alignment, and effective communication.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

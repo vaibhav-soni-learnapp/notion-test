@@ -1,0 +1,1062 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>App Store Info</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="c6a603eb-2781-4fc0-8498-323ee94e9168" class="page sans"><header><h1 class="page-title">App Store Info</h1><p class="page-description"></p></header><div class="page-body"><p id="189870f9-1ec5-49be-af00-9c10e3a2aa14" class="">
+</p><pre id="e0864fb4-f30c-4b98-b926-59155265ca76" class="code"><code>{&#x27;adSupported&#x27;: False,
+ &#x27;appId&#x27;: &#x27;com.rnselectastro&#x27;,
+ &#x27;categories&#x27;: [{&#x27;id&#x27;: &#x27;EDUCATION&#x27;, &#x27;name&#x27;: &#x27;Education&#x27;}],
+ &#x27;comments&#x27;: [&#x27;Worst app i ever used First call automatically disconnected App &#x27;
+              &#x27;deducted there 2 min . Without chat with astrologer First they &#x27;
+              &#x27;show the message that the astrologer will answered you in 2 min &#x27;
+              &#x27;and after 2 min . they demanding the recharge Even I called &#x27;
+              &quot;app&#x27;s customer service no. But no answer How can I trust in &quot;
+              &#x27;this condition&#x27;,
+              &#x27;Worst app. Everytime i call it get disconnected in 2 mins &#x27;
+              &#x27;despite having balance 😡😡. Then they say to recharge again.&#x27;,
+              &#x27;Dont download the APP I literally gifted twice and waited for a &#x27;
+              &#x27;damn long tym but the live stream was ended without even &#x27;
+              &#x27;answering the questions ...... 😑 Atleast can a have the refund &#x27;
+              &#x27;for not getting the answers ? Even if u write a bad review all &#x27;
+              &#x27;it does is apologise for formality and tells u to contact some &#x27;
+              &#x27;random email/phone no. An Acharya answered a question &#x27;
+              &#x27;incompletely coz the gifting was short for the acharya The &#x27;
+              &#x27;tarot readers predictions r all false !!&#x27;,
+              &#x27;You are offering free minutes for a new user and while talking &#x27;
+              &#x27;important with an astrologer you are cutting the call abruptly. &#x27;
+              &#x27;This is very pathetic service from you. If you are that much &#x27;
+              &#x27;money hungry, then inform us from the beginning to recharge &#x27;
+              &quot;before proceeding a consultation. Don&#x27;t waste customer&#x27;s &quot;
+              &#x27;valuable time.&#x27;,
+              &#x27;I have paid for Puja purpose yesterday night, and after that no &#x27;
+              &#x27;response at all. I have done repeated whatsapp messages and &#x27;
+              &#x27;also phone calls but still no response. They can not refund &#x27;
+              &#x27;money also when I want to cancel Puja. This is just pathetic &#x27;
+              &#x27;experience.&#x27;,
+              &#x27;I have a very good experience with VAMA. I will definitely &#x27;
+              &#x27;recommend to all. This app is your one stop solution to all &#x27;
+              &#x27;your problems.&#x27;,
+              &#x27;Ecperience is very poor. Most of the times Astrologer show &#x27;
+              &#x27;online but when click to open for call, they show offline, &#x27;
+              &#x27;there is no timings of the Astrologer, means no schedule / &#x27;
+              &#x27;timings when they will online or when they will offline and the &#x27;
+              &#x27;biggest drawback is that without WIFI this app is useless. It &#x27;
+              &#x27;is not possible to a person to be in WIFI. If it is on net then &#x27;
+              &#x27;it would be better and easy. Apart from this many Astrologers &#x27;
+              &#x27;are very high charges without having proper knowledge.&#x27;,
+              &#x27;I have great experience with VAMA. I will highly recommend to &#x27;
+              &#x27;all. This app your one stop solution to all your problems&#x27;,
+              &#x27;worst experience, first call get automatically disconnected and &#x27;
+              &quot;then they ask for recharge. kindly don&#x27;t download this app as &quot;
+              &#x27;nothing is free.&#x27;,
+              &#x27;Had a nice experience with app. services provided are very &#x27;
+              &#x27;helpful and accurate. Everyone can get solutions of their &#x27;
+              &#x27;problems very easily.&#x27;,
+              &#x27;It was remarkably accurate regarding specific years and dates, &#x27;
+              &#x27;especially in regards to my own personal history, which I had &#x27;
+              &#x27;not previously brought up. I really hope that this is always &#x27;
+              &#x27;free..&#x27;,
+              &#x27;DO NOT USE THIS!! I wish I could give zero stars.. totally &#x27;
+              &#x27;disappointed with this app..also the first free consultation is &#x27;
+              &quot;a scam!!!!! There&#x27;s no such thing..I tried it for the free &quot;
+              &#x27;consultation too and I called them the call was cut the very &#x27;
+              &quot;next second and I wasn&#x27;t able to ask anything.&quot;,
+              &#x27;Very bad experience.dont download it,waste of time and mb&#x27;,
+              &#x27;In my first free call, it was automatically disconnected within &#x27;
+              &#x27;a second😔...... And they say your free call is exhausted...plz &#x27;
+              &quot;don&#x27;t play these cheap games. Fake thing!!&quot;,
+              &#x27;Such waste of time app.... astrologers end the chat before time &#x27;
+              &#x27;without even giving answers App is waste, do not recommend at &#x27;
+              &quot;all. Playstore doesn&#x27;t have negative rating otherwise I have &quot;
+              &#x27;given that.&#x27;,
+              &#x27;I like the features of this app, this app makes our virtual &#x27;
+              &#x27;puja easily accessible at home.&#x27;,
+              &#x27;My experience with this app has been really great. I got my &#x27;
+              &#x27;first 3 mins absolutely free. The astrologer with whom I had &#x27;
+              &#x27;spoken was also good and very patient. I would surely recommend &#x27;
+              &#x27;this app.&#x27;,
+              &#x27;Super app my experience with vama aaplication is aswom I really &#x27;
+              &#x27;love live sessions running on the app full day. any time I can &#x27;
+              &#x27;connect with the astrologers and get the answer of my question &#x27;
+              &quot;and remedies too. That&#x27;s really super feature I have tried &quot;
+              &#x27;almost all the astrologers for different different questions &#x27;
+              &#x27;and I experienced that every one is having very depth knowledge &#x27;
+              &#x27;of astrology..team vama is great.&#x27;,
+              &#x27;This is the super app, here I find genuine astrologers who &#x27;
+              &#x27;helped me in my difficult times and my financial situation has &#x27;
+              &#x27;been improved. I must say this the best astrological app as &#x27;
+              &#x27;compared to others. Must try.&#x27;,
+              &quot;It&#x27;s a waste of time and money astrologer waste time and does &quot;
+              &quot;not answer anything and pretend they can&#x27;t hear or read our &quot;
+              &#x27;chats for minutes.&#x27;,
+              &#x27;Thanks to VAMA for making our virtual puja easier nice app and &#x27;
+              &#x27;very helpful.&#x27;,
+              &#x27;I talked to an astrologer that was very nice experience and the &#x27;
+              &#x27;things he told me to do,i did and then the prediction is &#x27;
+              &#x27;getting true. Glad to use this app.&#x27;,
+              &#x27;Great app 😀loved it so much, very helpful for everyone , you &#x27;
+              &#x27;guys must try it&#x27;,
+              &#x27;Initially, I was just curious and downloaded the app when I &#x27;
+              &quot;came across it. Wow, you&#x27;re all so spot on. Simple layout, few &quot;
+              &#x27;advertisements, and a low learning curve. These horoscopes are &#x27;
+              &#x27;written in an understandable and straightforward fashion. As a &#x27;
+              &#x27;whole, it was a fun experience.&#x27;,
+              &#x27;Best app ever seen. Remedies are very easy to do and amazing &#x27;
+              &#x27;results I got. But need to do with faith. Answers from the &#x27;
+              &#x27;tarot readers are shocking to know and they are 💯 true. Thank &#x27;
+              &#x27;you vama for your response.&#x27;,
+              &quot;It&#x27;s a best app ever, make my life eaier with accurate &quot;
+              &#x27;predictions, all astrologers are humble and good. Provide &#x27;
+              &#x27;proper predictions and guidance.&#x27;,
+              &quot;It&#x27;s a very helpful application to know about our stars and &quot;
+              &quot;what&#x27;s going on in our life...&quot;,
+              &#x27;Astrogers have sufficient knowledge of astrology but I would &#x27;
+              &#x27;like to thanks with whomever I did interacted but the problem I &#x27;
+              &#x27;m facing is of notice clarity. During prediction there are many &#x27;
+              &#x27;disturbances to hear smoothly due to connectivity and internet &#x27;
+              &#x27;problem. I would like to request to solve the issue on top &#x27;
+              &#x27;priority.&#x27;,
+              &#x27;Amazing app very easy do it online puja&#x27;,
+              &#x27;Acharya gayatri in this app is really awesome , support and &#x27;
+              &#x27;their ethics was also awesome , but now they are playing dirty &#x27;
+              &quot;games , it&#x27;s completely fine if they don&#x27;t want to give spin &quot;
+              &#x27;option but giving spin option and evertime all the users just &#x27;
+              &#x27;getting sorry setting up this type of algorithm is really very &#x27;
+              &#x27;bad beacuse user spends at least his 10 seconds a day in that &#x27;
+              &#x27;spin and this type of thing is not at all acceptable. Very &#x27;
+              &#x27;disappointed, never expected any such type of act from them.&#x27;,
+              &#x27;Very helpful app and every tarot reader is knowledgeable. Ach. &#x27;
+              &quot;A Anju ssahhay&#x27;s every prediction are correct. She is very &quot;
+              &#x27;polit.&#x27;,
+              &#x27;I am delighted to write a positive review of the Vama astrology &#x27;
+              &#x27;app .I have tried out several astrology apps over the years but &#x27;
+              &#x27;Vama has quickly became my favourite one thing I really love &#x27;
+              &#x27;about this app is that its user-friendly interface it is easy &#x27;
+              &#x27;to navigate and the layout is visually appealing. vama also &#x27;
+              &#x27;offers a range of other astrology related features like Pooja &#x27;
+              &#x27;and daily horoscope. Vama can help you to nevigate the complex &#x27;
+              &#x27;and ever - changing world of astrology with ease.Best App.&#x27;,
+              &#x27;I was actually very impressed with how much information was &#x27;
+              &quot;provided! I&#x27;m very eager to see how accurate the predictions &quot;
+              &#x27;are! Excited and very hopeful??.&#x27;,
+              &#x27;Vama Astrology is the best app I have had a very pleasant and &#x27;
+              &#x27;enriching experience on this site apart from a very rare &#x27;
+              &#x27;instances during personal reading to that was the mistake of &#x27;
+              &#x27;the astrologer.&#x27;,
+              &#x27;Excellent app for virtual puja,it was amazing experience.Live &#x27;
+              &#x27;sessions are also very helpful.Got solutions .&#x27;,
+              &#x27;Pathetic, Not recommended for availing services. They just take &#x27;
+              &#x27;money and vanish and trouble with lots of whatsapp msg asking &#x27;
+              &#x27;more money for other pooja but will not share details of your &#x27;
+              &#x27;pooja online you booked. Fraud app. Be careful!&#x27;,
+              &#x27;After app update all previous astrology call recordings are no &#x27;
+              &#x27;longer available, we cant go back &amp; listen to older predictions &#x27;
+              &#x27;anymore. Daily spin chakra is there but. 2nd review: Initially &#x27;
+              &#x27;spin chakra was there after update also, but now its removed, &#x27;
+              &quot;I&#x27;ve checked in every tab thinking that its moved to some other &quot;
+              &#x27;tab, but no its removed. Spin chakra was good, it was saving me &#x27;
+              &#x27;few bucks because i take regular predictions. Request Vama &#x27;
+              &#x27;admin if they can put it back.&#x27;,
+              &#x27;Excellent App! These guys really know what they are doing.&#x27;,
+              &quot;It&#x27;s a fake application for money &amp; time wasting of people who &quot;
+              &#x27;using this app. He made this platform for as a business for &#x27;
+              &#x27;frauding the money of peoples. He gives confusion and &#x27;
+              &#x27;misguiding the people for as a advise.&#x27;,
+              &#x27;Very amazing app &amp; all astrologer like Ach.Omm, Ach. Narendra, &#x27;
+              &#x27;Ach.kathik and many more&#x27;],
+ &#x27;containsAds&#x27;: False,
+ &#x27;contentRating&#x27;: &#x27;Rated for 3+&#x27;,
+ &#x27;contentRatingDescription&#x27;: None,
+ &#x27;currency&#x27;: &#x27;INR&#x27;,
+ &#x27;description&#x27;: &#x27;Searching for an app that caters to all your spiritual needs &#x27;
+                &#x27;like astrology, kundli matching, tarot card reading, future &#x27;
+                &#x27;predictions, daily horoscopes, online puja, mandir darshan, &#x27;
+                &#x27;consultations with expert astrologers online and many more? &#x27;
+                &#x27;Then let us introduce you to VAMA.\r\n&#x27;
+                &#x27;\r\n&#x27;
+                &#x27;VAMA stands for Virtual Astrology &amp; Mandir app. It is an &#x27;
+                &#x27;all-in-one spiritual app made just for you. \r\n&#x27;
+                &#x27;\r\n&#x27;
+                &#x27;With this best astrology app, spirituality becomes your &#x27;
+                &#x27;companion. Taking time off your busy schedule for temple &#x27;
+                &#x27;visits and pooja is now a thing of the past. We give you the &#x27;
+                &#x27;best astrology solutions online. Achieve pure spiritual &#x27;
+                &#x27;fulfillment with the help of our numerology and tarot &#x27;
+                &#x27;reading, available at the touch of a button. Our hindu &#x27;
+                &#x27;astrology app makes it easy for you to book a mandir darshan &#x27;
+                &#x27;and astrology consultation online with the best &#x27;
+                &#x27;astrologers.\r\n&#x27;
+                &#x27;\r\n&#x27;
+                &#x27; &lt;b&gt; Key Features &lt;/b&gt;\r\n&#x27;
+                &#x27;☀️ We offer personalized horoscope readings from expert &#x27;
+                &#x27;online astrologers.\r\n&#x27;
+                &#x27;☀️ Based on your birth date, time, and location, unlock &#x27;
+                &#x27;insights into your personality, love, career, and life path &#x27;
+                &quot;with VAMA&#x27;s detailed horoscope.\r\n&quot;
+                &#x27;☀️ Explore the secrets of numerology with our daily &#x27;
+                &#x27;horoscopes for all zodiac signs.\r\n&#x27;
+                &#x27;☀️ Talk to an astrologer and get unique insights on your &#x27;
+                &#x27;personal, professional or marriage-related queries.  \r\n&#x27;
+                &quot;☀️ Elevate your life with our astrology app&#x27;s personalized &quot;
+                &#x27;rituals for relationships, career, and more\r\n&#x27;
+                &#x27;☀️ Talk live to any experienced tarot card reader and get &#x27;
+                &#x27;valuable advice and insights about your life. \r\n&#x27;
+                &#x27;☀️ Get the best astrology app for English &amp; Hindi speaking &#x27;
+                &#x27;astrologers and tarot readers online.\r\n&#x27;
+                &#x27;☀️Get starry-eyed with VAMA - Your go-to app for personalized &#x27;
+                &#x27;horoscopes by online astrologers.\r\n&#x27;
+                &#x27;\r\n&#x27;
+                &#x27;&lt;b&gt; Why Choose Us &lt;/b&gt;\r\n&#x27;
+                &#x27;🌕 Access our astrology consultation at any time, from any &#x27;
+                &#x27;part of the world.\r\n&#x27;
+                &#x27;🌕 Whether you want to get kundli predictions, कुंडली मिलान, &#x27;
+                &#x27;future predictions or any other astrological assistance or &#x27;
+                &#x27;consultation, we’ve got you covered. \r\n&#x27;
+                &#x27;🌕With this best astrology app unleash the power of Hindu &#x27;
+                &#x27;astrology and uncover its impact on your life through &#x27;
+                &#x27;celestial alignment.\r\n&#x27;
+                &#x27;🌕 Connect with expert astrologers for live consultations and &#x27;
+                &#x27;aligned astrology guidance. We have online astrologer &amp; &#x27;
+                &#x27;online jyotish specializing in multiple subfields, such as &#x27;
+                &#x27;numerology, vedic astrology, vastu shastra, nadi astrology, &#x27;
+                &#x27;tarot reading and KP astrology. \r\n&#x27;
+                &quot;🌕 Find your soulmate with Vama&#x27;s spiritual astrological &quot;
+                &#x27;matchmaking. \r\n&#x27;
+                &quot;🌕 Navigate life&#x27;s energies with our Hindu astrology app and &quot;
+                &#x27;expert guidance of top astrologers.\r\n&#x27;
+                &#x27;🌕 Gain a deeper understanding of yourself and your place in &#x27;
+                &#x27;the world through accurate astrology prediction.\r\n&#x27;
+                &#x27;🌕Stay up-to-date on auspicious periods for holy rituals with &#x27;
+                &#x27;our Hindu astrology app, which updates Panchang information &#x27;
+                &#x27;regularly.\r\n&#x27;
+                &#x27;\r\n&#x27;
+                &#x27;&lt;b&gt; Our Services &lt;/b&gt;\r\n&#x27;
+                &#x27;⭐Talk to astrologer online\r\n&#x27;
+                &#x27;⭐Perform virtual puja\r\n&#x27;
+                &#x27;⭐Live tarot reading service available \r\n&#x27;
+                &#x27;⭐Watch live mandir puja\r\n&#x27;
+                &#x27;⭐Schedule temple visits / mandir darshan\r\n&#x27;
+                &#x27;⭐Get online kundli matching done\r\n&#x27;
+                &#x27;⭐Matchmaking using love/compatibility score\r\n&#x27;
+                &#x27;⭐Live Consultation from astrologers\r\n&#x27;
+                &#x27;⭐Access the daily panchang\r\n&#x27;
+                &#x27;\r\n&#x27;
+                &#x27;Unlock the secrets of the stars and elevate your spiritual &#x27;
+                &#x27;practice with our innovative astrologer app. Discover the &#x27;
+                &#x27;universe within, with VAMA, your ultimate astrology app. From &#x27;
+                &#x27;personalized horoscopes to in-depth analysis of your birth &#x27;
+                &#x27;chart, this best astrology app offers a comprehensive and &#x27;
+                &#x27;user-friendly experience. \r\n&#x27;
+                &#x27;\r\n&#x27;
+                &#x27;Enhance your spiritual practice with astrology and take the &#x27;
+                &#x27;first step on your journey with our Live astro app today.\r\n&#x27;
+                &#x27;\r\n&#x27;
+                &#x27;&lt;b&gt; Reach Out To Us &lt;/b&gt;\r\n&#x27;
+                &#x27;If you’re an astrologer who wants to help people in a quest &#x27;
+                &#x27;for self-improvement and growth, join us by filling this form &#x27;
+                &#x27;out: \r\n&#x27;
+                &#x27;https://docs.google.com/forms/d/e/1FAIpQLScCRH-n_-7qvFhxX3uyd_ETw71bDmdNCRgI858UegooztVl8A/viewform?usp=pp_url. \r\n&#x27;
+                &#x27;\r\n&#x27;
+                &#x27;Your feedback helps us improve, please reach out to us at &#x27;
+                &#x27;customer.care@vama.app for any questions or concerns.  \r\n&#x27;
+                &#x27;\r\n&#x27;
+                &#x27;Download the Vama app now to enhance your spiritual &#x27;
+                &#x27;experience.&#x27;,
+ &#x27;descriptionHTML&#x27;: &#x27;Searching for an app that caters to all your spiritual &#x27;
+                    &#x27;needs like astrology, kundli matching, tarot card &#x27;
+                    &#x27;reading, future predictions, daily horoscopes, online &#x27;
+                    &#x27;puja, mandir darshan, consultations with expert &#x27;
+                    &#x27;astrologers online and many more? Then let us introduce &#x27;
+                    &#x27;you to VAMA.&lt;br&gt;&lt;br&gt;VAMA stands for Virtual Astrology &#x27;
+                    &#x27;&amp;amp; Mandir app. It is an all-in-one spiritual app made &#x27;
+                    &#x27;just for you. &lt;br&gt;&lt;br&gt;With this best astrology app, &#x27;
+                    &#x27;spirituality becomes your companion. Taking time off your &#x27;
+                    &#x27;busy schedule for temple visits and pooja is now a thing &#x27;
+                    &#x27;of the past. We give you the best astrology solutions &#x27;
+                    &#x27;online. Achieve pure spiritual fulfillment with the help &#x27;
+                    &#x27;of our numerology and tarot reading, available at the &#x27;
+                    &#x27;touch of a button. Our hindu astrology app makes it easy &#x27;
+                    &#x27;for you to book a mandir darshan and astrology &#x27;
+                    &#x27;consultation online with the best astrologers.&lt;br&gt;&lt;br&gt; &#x27;
+                    &#x27;&lt;b&gt; Key Features &lt;/b&gt;&lt;br&gt;☀️ We offer personalized &#x27;
+                    &#x27;horoscope readings from expert online astrologers.&lt;br&gt;☀️ &#x27;
+                    &#x27;Based on your birth date, time, and location, unlock &#x27;
+                    &#x27;insights into your personality, love, career, and life &#x27;
+                    &#x27;path with VAMA&amp;#39;s detailed horoscope.&lt;br&gt;☀️ Explore &#x27;
+                    &#x27;the secrets of numerology with our daily horoscopes for &#x27;
+                    &#x27;all zodiac signs.&lt;br&gt;☀️ Talk to an astrologer and get &#x27;
+                    &#x27;unique insights on your personal, professional or &#x27;
+                    &#x27;marriage-related queries.  &lt;br&gt;☀️ Elevate your life with &#x27;
+                    &#x27;our astrology app&amp;#39;s personalized rituals for &#x27;
+                    &#x27;relationships, career, and more&lt;br&gt;☀️ Talk live to any &#x27;
+                    &#x27;experienced tarot card reader and get valuable advice and &#x27;
+                    &#x27;insights about your life. &lt;br&gt;☀️ Get the best astrology &#x27;
+                    &#x27;app for English &amp;amp; Hindi speaking astrologers and &#x27;
+                    &#x27;tarot readers online.&lt;br&gt;☀️Get starry-eyed with VAMA - &#x27;
+                    &#x27;Your go-to app for personalized horoscopes by online &#x27;
+                    &#x27;astrologers.&lt;br&gt;&lt;br&gt;&lt;b&gt; Why Choose Us &lt;/b&gt;&lt;br&gt;🌕 Access &#x27;
+                    &#x27;our astrology consultation at any time, from any part of &#x27;
+                    &#x27;the world.&lt;br&gt;🌕 Whether you want to get kundli &#x27;
+                    &#x27;predictions, कुंडली मिलान, future predictions or any &#x27;
+                    &#x27;other astrological assistance or consultation, we’ve got &#x27;
+                    &#x27;you covered. &lt;br&gt;🌕With this best astrology app unleash &#x27;
+                    &#x27;the power of Hindu astrology and uncover its impact on &#x27;
+                    &#x27;your life through celestial alignment.&lt;br&gt;🌕 Connect with &#x27;
+                    &#x27;expert astrologers for live consultations and aligned &#x27;
+                    &#x27;astrology guidance. We have online astrologer &amp;amp; &#x27;
+                    &#x27;online jyotish specializing in multiple subfields, such &#x27;
+                    &#x27;as numerology, vedic astrology, vastu shastra, nadi &#x27;
+                    &#x27;astrology, tarot reading and KP astrology. &lt;br&gt;🌕 Find &#x27;
+                    &#x27;your soulmate with Vama&amp;#39;s spiritual astrological &#x27;
+                    &#x27;matchmaking. &lt;br&gt;🌕 Navigate life&amp;#39;s energies with our &#x27;
+                    &#x27;Hindu astrology app and expert guidance of top &#x27;
+                    &#x27;astrologers.&lt;br&gt;🌕 Gain a deeper understanding of yourself &#x27;
+                    &#x27;and your place in the world through accurate astrology &#x27;
+                    &#x27;prediction.&lt;br&gt;🌕Stay up-to-date on auspicious periods for &#x27;
+                    &#x27;holy rituals with our Hindu astrology app, which updates &#x27;
+                    &#x27;Panchang information regularly.&lt;br&gt;&lt;br&gt;&lt;b&gt; Our Services &#x27;
+                    &#x27;&lt;/b&gt;&lt;br&gt;⭐Talk to astrologer online&lt;br&gt;⭐Perform virtual &#x27;
+                    &#x27;puja&lt;br&gt;⭐Live tarot reading service available &lt;br&gt;⭐Watch &#x27;
+                    &#x27;live mandir puja&lt;br&gt;⭐Schedule temple visits / mandir &#x27;
+                    &#x27;darshan&lt;br&gt;⭐Get online kundli matching &#x27;
+                    &#x27;done&lt;br&gt;⭐Matchmaking using love/compatibility &#x27;
+                    &#x27;score&lt;br&gt;⭐Live Consultation from astrologers&lt;br&gt;⭐Access &#x27;
+                    &#x27;the daily panchang&lt;br&gt;&lt;br&gt;Unlock the secrets of the stars &#x27;
+                    &#x27;and elevate your spiritual practice with our innovative &#x27;
+                    &#x27;astrologer app. Discover the universe within, with VAMA, &#x27;
+                    &#x27;your ultimate astrology app. From personalized horoscopes &#x27;
+                    &#x27;to in-depth analysis of your birth chart, this best &#x27;
+                    &#x27;astrology app offers a comprehensive and user-friendly &#x27;
+                    &#x27;experience. &lt;br&gt;&lt;br&gt;Enhance your spiritual practice with &#x27;
+                    &#x27;astrology and take the first step on your journey with &#x27;
+                    &#x27;our Live astro app today.&lt;br&gt;&lt;br&gt;&lt;b&gt; Reach Out To Us &#x27;
+                    &#x27;&lt;/b&gt;&lt;br&gt;If you’re an astrologer who wants to help people &#x27;
+                    &#x27;in a quest for self-improvement and growth, join us by &#x27;
+                    &#x27;filling this form out: &#x27;
+                    &#x27;&lt;br&gt;https://docs.google.com/forms/d/e/1FAIpQLScCRH-n_-7qvFhxX3uyd_ETw71bDmdNCRgI858UegooztVl8A/viewform?usp=pp_url. &#x27;
+                    &#x27;&lt;br&gt;&lt;br&gt;Your feedback helps us improve, please reach out &#x27;
+                    &#x27;to us at customer.care@vama.app for any questions or &#x27;
+                    &#x27;concerns.  &lt;br&gt;&lt;br&gt;Download the Vama app now to enhance &#x27;
+                    &#x27;your spiritual experience.&#x27;,
+ &#x27;developer&#x27;: &#x27;Virtual Astrology &amp; Mandir App&#x27;,
+ &#x27;developerAddress&#x27;: &#x27;211, Alt-F, Suncity Success Towers, Sector 65, Gurugram, &#x27;
+                     &#x27;Haryana 122015&#x27;,
+ &#x27;developerEmail&#x27;: &#x27;contact@selectastro.com&#x27;,
+ &#x27;developerId&#x27;: &#x27;8773351615696639524&#x27;,
+ &#x27;developerWebsite&#x27;: &#x27;https://vama.app/&#x27;,
+ &#x27;free&#x27;: True,
+ &#x27;genre&#x27;: &#x27;Lifestyle&#x27;,
+ &#x27;genreId&#x27;: &#x27;LIFESTYLE&#x27;,
+ &#x27;headerImage&#x27;: &#x27;https://play-lh.googleusercontent.com/UwyTalHKGzwc80V_p38hhQHiD0pRcPueroW5RdLxgVe4arN_4aha_xB3Ais7mGdgnFYq&#x27;,
+ &#x27;histogram&#x27;: [428, 28, 47, 263, 1686],
+ &#x27;icon&#x27;: &#x27;https://play-lh.googleusercontent.com/SPii98f7lEljMhVE7nvwtivPgVUkj_CyXyAxtfrpAb8Jc7h75HgUbKqn4FpE_-fedAlw&#x27;,
+ &#x27;inAppProductPrice&#x27;: None,
+ &#x27;installs&#x27;: &#x27;500,000+&#x27;,
+ &#x27;minInstalls&#x27;: 500000,
+ &#x27;offersIAP&#x27;: False,
+ &#x27;originalPrice&#x27;: None,
+ &#x27;price&#x27;: 0,
+ &#x27;privacyPolicy&#x27;: &#x27;https://vama.app/privacy-policy&#x27;,
+ &#x27;ratings&#x27;: 2457,
+ &#x27;realInstalls&#x27;: 993152,
+ &#x27;released&#x27;: &#x27;Jun 24, 2021&#x27;,
+ &#x27;reviews&#x27;: 1211,
+ &#x27;sale&#x27;: False,
+ &#x27;saleText&#x27;: None,
+ &#x27;saleTime&#x27;: None,
+ &#x27;score&#x27;: 4.1190476,
+ &#x27;screenshots&#x27;: [&#x27;https://play-lh.googleusercontent.com/Vhv67uLZWHfPcriBllaFEs_G_DnE4T91SDPUwPYy-6BBP9xigod2u8tt9lJk_t4EgA&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/0c40HFmGGXeXMBiXpBMiPxNXlgFDwCVzfEUtTLzAaqe5NhbsmOL8x0YvWT_wnVZzeg&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/0k-NdjUN2St3QmZTlXLRLTJ0ytj8VYyAX5L96mmRwzfbxjNjE8AvlNwEJ6xMta624GI&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/3z479NfeY5A6C3vDckCwai274qxfGnTEZF54H_lEDKTz2DDU_7TQgGLO6IkAJHtlDaY&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/aYRx0wTPxQ_OUdVoAm4JzgZ6CU6exJcbMX0bkGpgQyjI_xBGFZ_X75BoAm9ugq-2R00&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/Y-JiPjSxOK9W0f2XxbdH2u-9_Y0H0HIBD03hi9PGowS26ui9Mf2MSwqoQEEWbPDuqstA&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/cxBxD27BJQTjwIwBpgFKoCpcQE8FKQ1dMWnhxEJdjuItTRuHUn1UiPqXyZLkcX525R-y&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/2h64F3gkUbp74Ib3kNS7erd03WG_F_n6lJmQxzdzBemeI02hS53UimERu06w3nKWoqc&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/Qgr6HdIip1dVSBbG4cqqqef2zR3lE8_jggTd-ydP80aBsps33711XDsYJd7uX2WkCxc&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/kC2JmJThRLiM-kuu4XDGxOf8B2yGQDAy6aXMxrHCXhnUELEbWHbtG-QWIkm_ydS9SxiH&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/B9fZJfpy0g6d6IQ-xyqfMDK95F_4z1PiAVbE4OoGp_mJrKe45B2wOIvV9Tecyci2Wgfi&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/J3j2PLvQpM_V2yltjcH1VTU7NfE-mxEZCnJfLM3Qo2rKCJFy3fwEYEwsM_-fCB6z0w&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/zBfUSqV9ZrBzUfPKf_oLzPECqzKk0kn8GK8uaF5Sh9I_tLfOV0uyB6D56kDHuL2FkRW6&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/Bz5DFv2uvfWKfL0tqNkOKjZI-clDgWn8Q5hiwUT9GI-Fzs_7dfA7bxkTpcxa1DRyjhs&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/NtSJF73vfOPWWUTJKVrHIoIFHwTYpjRuZkRr4svzqXvAyii6Sq9uyiXrOXQmuJGct2Y&#x27;,
+                 &#x27;https://play-lh.googleusercontent.com/FHW3ep99TT_Eum-BYhENCI55Qjjs5euLWVZhlFYCIOPU_Nh3p9FxOlMiYGAE7iAXwIQ&#x27;],
+ &#x27;summary&#x27;: &#x27;Astro App For Personal Puja, Tarot &amp; Astrology Advice From &#x27;
+            &#x27;Skilled Astrologers&#x27;,
+ &#x27;title&#x27;: &#x27;Astrology &amp; Virtual Mandir App&#x27;,
+ &#x27;updated&#x27;: 1687264191,
+ &#x27;url&#x27;: &#x27;https://play.google.com/store/apps/details?id=com.rnselectastro&amp;hl=en&amp;gl=in&#x27;,
+ &#x27;version&#x27;: &#x27;4.5.0&#x27;,
+ &#x27;video&#x27;: &#x27;https://www.youtube.com/embed/92n1LP4vhDE?ps=play&amp;vq=large&amp;rel=0&amp;autohide=1&amp;showinfo=0&#x27;,
+ &#x27;videoImage&#x27;: &#x27;https://play-lh.googleusercontent.com/UwyTalHKGzwc80V_p38hhQHiD0pRcPueroW5RdLxgVe4arN_4aha_xB3Ais7mGdgnFYq&#x27;}</code></pre></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
